@@ -12,14 +12,14 @@ using Microsoft.Extensions.DependencyInjection;
 var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("Auth1ContextConnection") ?? throw new InvalidOperationException("Connection string 'Auth1ContextConnection' not found.");
+var connectionString = builder.Configuration.GetConnectionString("FITNESSGYMContextConnection") ?? throw new InvalidOperationException("Connection string 'FITNESSGYMContextConnection' not found.");
 
-builder.Services.AddDbContext<Auth1Context>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<FITNESSGYMContext>(options => options.UseSqlServer(connectionString));
 
 
 builder.Services.AddDefaultIdentity<IdentityUser>()
     .AddRoles<IdentityRole>()
-    .AddEntityFrameworkStores<Auth1Context>();
+    .AddEntityFrameworkStores<FITNESSGYMContext>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

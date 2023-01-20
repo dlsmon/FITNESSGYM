@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FITNESSGYM.Migrations
 {
-    [DbContext(typeof(Auth1Context))]
+    [DbContext(typeof(FITNESSGYMContext))]
     [Migration("20230118100347_extendAspNetUsers")]
     partial class extendAspNetUsers
     {

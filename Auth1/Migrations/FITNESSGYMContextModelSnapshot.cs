@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FITNESSGYM.Migrations
 {
-    [DbContext(typeof(Auth1Context))]
-    partial class Auth1ContextModelSnapshot : ModelSnapshot
+    [DbContext(typeof(FITNESSGYMContext))]
+    partial class FITNESSGYMContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

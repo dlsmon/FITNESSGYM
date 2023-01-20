@@ -5,9 +5,9 @@ using FITNESSGYM.Models;
 
 namespace FITNESSGYM.Data;
 
-public class Auth1Context : IdentityDbContext<IdentityUser>
+public class FITNESSGYMContext : IdentityDbContext<IdentityUser>
 {
-    public Auth1Context(DbContextOptions<Auth1Context> options)
+    public FITNESSGYMContext(DbContextOptions<FITNESSGYMContext> options)
         : base(options)
     {
     }
