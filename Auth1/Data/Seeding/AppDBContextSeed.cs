@@ -16,9 +16,8 @@ namespace FITNESSGYM.Data.Seeding
             //Remarque : le Id n'est pas affiché dans la vue
 
             //Exercise 
-
-
-                    //Perte de poids : cardio
+            
+            //Perte de poids : cardio
 
             modelBuilder.Entity<Exercise>().HasData(
                 new Exercise()
