@@ -72,8 +72,6 @@ namespace FITNESSGYM.Data.Seeding
                 });
 
 
-
-
             //Training program  
 
             modelBuilder.Entity<TrainingProgram>().HasData(
@@ -546,8 +544,8 @@ namespace FITNESSGYM.Data.Seeding
                 new Session()
                 {
                     Id = 1,
-                    //Date = "15/01/2023",
-                    //Time = 
+                    SessionDate = DateTime.Now.AddDays(1),
+                    SessionHour = DateTime.Now,
                     MaxParticipants = 15,
                     FormulaRank = 3,
                     IdTrainingProgram = 1,
@@ -559,8 +557,8 @@ namespace FITNESSGYM.Data.Seeding
                 new Session()
                 {
                     Id = 2,
-                    //Date = 15/01/2023,
-                    //Time,
+                    SessionDate = DateTime.Now.AddDays(2),
+                    SessionHour = DateTime.Now,
                     MaxParticipants = 20,
                     FormulaRank = 3,
                     IdTrainingProgram = 2,
@@ -572,8 +570,8 @@ namespace FITNESSGYM.Data.Seeding
                 new Session()
                 {
                     Id = 3,
-                    //Date = 16/01/2023,
-                    //Time,
+                    SessionDate = DateTime.Now.AddDays(2),
+                    SessionHour = DateTime.Now,
                     MaxParticipants = 30,
                     FormulaRank = 3,
                     IdTrainingProgram = 3,
@@ -585,8 +583,8 @@ namespace FITNESSGYM.Data.Seeding
                 new Session()
                 {
                     Id = 4,
-                    //Date = 14/01/2023,
-                    //Time,
+                    SessionDate = DateTime.Now.AddDays(2),
+                    SessionHour = DateTime.Now,
                     MaxParticipants = 22,
                     FormulaRank = 3,
                     IdTrainingProgram = 4,
@@ -614,15 +612,15 @@ namespace FITNESSGYM.Data.Seeding
                 new Client()
                 {
                     ID = 1,
-                    FirstName = "Rachel",
-                    LastName = "Wiliam",
+                    FirstName = "David",
+                    LastName = "Moniz",
                     Sex = Client.eSex.Women,
                     Height = 170,
                     Weight = 75,
                     //Birthdate = 28.01.1990,
                     Phonenumber = 0620285591,
                     Adresse = "Rue du Chateau, 95110 Paris",
-                    IdUser = "Rachel@gmail.com",
+                    IdUser = "david0moniz@hotmail.com",
                     Diseases = "None",
                     Hobbies = "Danse, volley-ball",
                     Newsletter = Client.eNewsletter.Yes,
@@ -681,7 +679,7 @@ namespace FITNESSGYM.Data.Seeding
                     Id = 1,                   
                     Cancelled = Reservation.eCancelled.No,
                     IdSession = 1,
-                    IdClient = 1                   
+                    IdClient = 1,
                 });
 
             modelBuilder.Entity<Reservation>().HasData(
@@ -698,17 +696,17 @@ namespace FITNESSGYM.Data.Seeding
                 {
                     Id = 3,
                     Cancelled = Reservation.eCancelled.No,
-                    IdSession = 5,
-                    IdClient = 2
+                    IdSession = 3,
+                    IdClient = 1
                 });
 
             modelBuilder.Entity<Reservation>().HasData(
                 new Reservation()
                 {
                     Id = 4,
-                    Cancelled = Reservation.eCancelled.Yes,
-                    IdSession = 3,
-                    IdClient = 2
+                    Cancelled = Reservation.eCancelled.No,
+                    IdSession = 4,
+                    IdClient = 1
                 });
 
 

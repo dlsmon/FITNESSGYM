@@ -154,7 +154,29 @@ namespace FITNESSGYM.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Sessions(int id, string searchString)
+        {
+            if (_context.TrainingProgram.Find(id) == null)
+            {
+                string name = _context.TrainingProgram.Find(id).Name;
+                if (_context.TrainingProgram.Find(id).Sessions == null)
+                {
+                    return Problem("No Sessions available for the " + name + " Training Program found.");
+                }
+            }
 
+            ViewBag.TrainingProgram = _context.TrainingProgram.Find(id);
+
+            var sessions = from m in _context.Session.Where(s => s.IdTrainingProgram == id)
+                           select m;
+
+            /*if (!String.IsNullOrEmpty(searchString))
+            {
+                sessions = sessions.Where(s => s.!.Contains(searchString));
+            }*/
+
+            return View(await sessions.ToListAsync());
+        }
         private bool TrainingProgramExists(int id)
         {
           return (_context.TrainingProgram?.Any(e => e.Id == id)).GetValueOrDefault();

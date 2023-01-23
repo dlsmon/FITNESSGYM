@@ -23,7 +23,7 @@ namespace FITNESSGYM.Controllers
         // GET: Reservation
         public async Task<IActionResult> Index()
         {
-            var FITNESSGYMDBContext = _context.Reservation.Include(r => r.Session);
+            var FITNESSGYMDBContext = _context.Reservation.Include(r => r.Session).Include(r => r.Client).Where(m => m.Client.IdUser == User.Identity.Name);
             return View(await FITNESSGYMDBContext.ToListAsync());
         }
 

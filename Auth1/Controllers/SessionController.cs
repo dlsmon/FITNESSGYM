@@ -181,18 +181,18 @@ namespace FITNESSGYM.Controllers
                                     .FirstOrDefaultAsync(m => m.Id == id);
                     //show all reservations of session.Id that were not cancelled by the user
                     var reservations = await _context.Reservation
-                        .Where(m => m.IdSession == session.Id)
+                        .Where(m => m.IdSession == id)
                         .Where(m => m.Cancelled == Reservation.eCancelled.No)
                         .ToListAsync();
-                    //Check if Session will start in more than 30 minutes from now
                     if (session != null)
                     {
+                        //Check if Session will start in more than 30 minutes from now
                         if (session.SessionDate > DateTime.Now.AddMinutes(-30))
                         {
                             //Check if there is space to create a reservation on the training program session
                             if (reservations.Count() < session.MaxParticipants)
                             {
-                                //Check if the user already reserved
+                                //Check if the user already reserved and not cancelled
                                 if (!reservations.Any(e => e.IdUser == User.Identity.Name))
                                 {
                                     //User can create a resevation 

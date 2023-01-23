@@ -420,7 +420,7 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     Cancelled = table.Column<int>(type: "int", nullable: true),
                     IdSession = table.Column<int>(type: "int", nullable: true),
                     IdUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    IdClient = table.Column<int>(type: "int", nullable: false)
+                    IdClient = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -429,8 +429,7 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                         name: "FK_Reservation_Client_IdClient",
                         column: x => x.IdClient,
                         principalTable: "Client",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "ID");
                     table.ForeignKey(
                         name: "FK_Reservation_Session_IdSession",
                         column: x => x.IdSession,
@@ -443,7 +442,7 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                 columns: new[] { "ID", "Adresse", "Birthdate", "Diseases", "FirstName", "Freetrial", "Height", "Hobbies", "IdUser", "LastName", "Newsletter", "Phonenumber", "Sex", "Weight" },
                 values: new object[,]
                 {
-                    { 1, "Rue du Chateau, 95110 Paris", null, "None", "Rachel", 0, 170, "Danse, volley-ball", "Rachel@gmail.com", "Wiliam", 0, 620285591, 0, 75 },
+                    { 1, "Rue du Chateau, 95110 Paris", null, "None", "David", 0, 170, "Danse, volley-ball", "david0moniz@hotmail.com", "Moniz", 0, 620285591, 0, 75 },
                     { 2, "Rue du Chateau, 95110 Paris", null, "diabetes", "Richy", 1, 170, "Sport", "Richy@gmail.com", "Wiliam", 1, 633504482, 1, 85 }
                 });
 
@@ -581,10 +580,10 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                 columns: new[] { "Id", "FormulaRank", "IdCoach", "IdLocation", "IdTrainingProgram", "MaxParticipants", "SessionDate", "SessionHour" },
                 values: new object[,]
                 {
-                    { 1, 3, 1, 2, 1, 15, null, null },
-                    { 2, 3, 5, 7, 2, 20, null, null },
-                    { 3, 3, 5, 9, 3, 30, null, null },
-                    { 4, 3, 3, 8, 4, 22, null, null },
+                    { 1, 3, 1, 2, 1, 15, new DateTime(2023, 1, 24, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3593), new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3655) },
+                    { 2, 3, 5, 7, 2, 20, new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3672), new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3674) },
+                    { 3, 3, 5, 9, 3, 30, new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3685), new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3687) },
+                    { 4, 3, 3, 8, 4, 22, new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3698), new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3699) },
                     { 5, 3, 1, 3, 2, 18, null, null }
                 });
 
@@ -595,8 +594,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                 {
                     { 1, 0, 1, 1, null },
                     { 2, 0, 1, 2, null },
-                    { 3, 0, 2, 5, null },
-                    { 4, 1, 2, 3, null }
+                    { 3, 0, 1, 3, null },
+                    { 4, 0, 1, 4, null }
                 });
 
             migrationBuilder.CreateIndex(

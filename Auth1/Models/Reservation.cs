@@ -27,7 +27,7 @@ namespace FITNESSGYM.Models
         public int? IdSession { get; set; }
         public string? IdUser { get; set; }
 
-        public int IdClient { get; set; }
+        public int? IdClient { get; set; }
 
         //Foreign KEYS
         [ForeignKey("IdSession")]
