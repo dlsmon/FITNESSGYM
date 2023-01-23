@@ -27,9 +27,14 @@ namespace FITNESSGYM.Models
         public int? IdSession { get; set; }
         public string? IdUser { get; set; }
 
+        public int IdClient { get; set; }
+
         //Foreign KEYS
         [ForeignKey("IdSession")]
         public virtual Session? Session { get; set; }
+
+        [ForeignKey("IdClient")]
+        public virtual Client? Client { get; set; }
 
         public Reservation()
         {

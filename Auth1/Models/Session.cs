@@ -29,13 +29,18 @@ namespace FITNESSGYM.Models
         // public int? IdTrainingProgram { get; set; }
         public int? IdCoach { get; set; }
         public int? IdLocation { get; set; }
-        
+        public int? IdTrainingProgram { get; set; }
+
 
         //Foreign Key
         [ForeignKey("IdTrainingProgram")]
         public virtual TrainingProgram? TrainingProgram { get; set; }
 
-       
+        [ForeignKey("IdCoach")]
+        public virtual Coach? Coach { get; set; }
+
+        [ForeignKey("IdLocation")]
+        public virtual Location? Location { get; set; }
 
         public virtual ICollection<Reservation>? Reservations { get; set; }
 

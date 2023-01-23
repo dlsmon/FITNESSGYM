@@ -19,7 +19,7 @@ namespace FITNESSGYM.Controllers
     public class SessionController : Controller
     {
         private readonly FITNESSGYMDBContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        
 
         public SessionController(FITNESSGYMDBContext context)
         {

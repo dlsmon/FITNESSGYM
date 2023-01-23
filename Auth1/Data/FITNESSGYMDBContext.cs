@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using FITNESSGYM.Models;
+using System.Reflection.Emit;
+using FITNESSGYM.Data.Seeding;
 
 namespace FITNESSGYM.Data
 {
@@ -12,11 +14,32 @@ namespace FITNESSGYM.Data
         public FITNESSGYMDBContext (DbContextOptions<FITNESSGYMDBContext> options)
             : base(options)
         {
+            
         }
 
-        public DbSet<FITNESSGYM.Models.TrainingProgram> TrainingProgram { get; set; } = default!;
-        public DbSet<FITNESSGYM.Models.Session> Session { get; set; } = default!;
-        public DbSet<FITNESSGYM.Models.Reservation> Reservation { get; set; } = default!;
+        //Seeding Database
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            AppDBContextSeed.Seed(modelBuilder);
+            base.OnModelCreating(modelBuilder);
+
+        }
+
+        public DbSet<Exercise> Exercise { get; set; } = default!;
+        public DbSet<TrainingProgram> TrainingProgram { get; set; } = default!;
+        public DbSet<IndividualProgram> IndividualProgram { get; set; } = default!;
+
+        public DbSet<Goal> Goal { get; set; } = default!;
+        public DbSet<Location> Location { get; set; } = default!;
+        public DbSet<Formula> Formula { get; set; } = default!;
+        public DbSet<Coach> Coach { get; set; } = default!;
+        public DbSet<Speciality> Speciality { get; set; } = default!;
+        public DbSet<Machine> Machine { get; set; } = default!;
+        public DbSet<Session> Session { get; set; } = default!;
+        public DbSet<Client> Client { get; set; } = default!;
+        public DbSet<Subscription> Subscription { get; set; } = default!;
+        public DbSet<Reservation> Reservation { get; set; } = default!;
+        public DbSet<Product> Product { get; set; } = default!;
 
     }
 }
