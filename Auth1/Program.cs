@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using FITNESSGYM.Data;
@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 var apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<FITNESSGYMDBContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FITNESSGYMDBContextConnection") ?? throw new InvalidOperationException("Connection string 'FITNESSGYMDBContext' not found.")));
 var connectionString = builder.Configuration.GetConnectionString("FITNESSGYMContextConnection") ?? throw new InvalidOperationException("Connection string 'FITNESSGYMContextConnection' not found.");
 
 builder.Services.AddDbContext<FITNESSGYMContext>(options => options.UseSqlServer(connectionString));
@@ -49,6 +51,9 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+
+
 app.MapRazorPages();
 
 app.Run();
