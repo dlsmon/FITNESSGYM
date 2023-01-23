@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FITNESSGYM.Migrations
 {
     [DbContext(typeof(FITNESSGYMContext))]
-    [Migration("20230123041846_Identity")]
+    [Migration("20230123111739_Identity")]
     partial class Identity
     {
         /// <inheritdoc />

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FITNESSGYM.Migrations.FITNESSGYMDB
 {
     /// <inheritdoc />
-    public partial class addModels : Migration
+    public partial class MyMigration : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -285,7 +285,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                 {
                     ID = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FirstName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Photo = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IdSpeciality = table.Column<int>(type: "int", nullable: true)
                 },
@@ -538,15 +539,15 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
 
             migrationBuilder.InsertData(
                 table: "Coach",
-                columns: new[] { "ID", "Description", "IdSpeciality", "Photo" },
+                columns: new[] { "ID", "FirstName", "IdSpeciality", "LastName", "Photo" },
                 values: new object[,]
                 {
-                    { 1, null, 1, "/Assets/Images/Quentin H.jfif" },
-                    { 2, null, 2, null },
-                    { 3, null, 3, null },
-                    { 4, null, 1, null },
-                    { 5, null, 1, null },
-                    { 6, null, 4, null }
+                    { 1, "CEDERIC", 1, "O", "/Assets/Images/Coach/CEDRIC_O.jpg" },
+                    { 2, "DELPHINE", 2, "G", "/Assets/Images/Coach/DELPHINE G.jpg" },
+                    { 3, "FLORIAN", 3, "G", "/Assets/Images/Coach/FLORIAN_G.jpg" },
+                    { 4, "GUILLAUME", 1, "P", "/Assets/Images/Coach/GUILLAUME P.jpg" },
+                    { 5, "JESSUN", 1, "C", "/Assets/Images/Coach/JESSUN C.jpg" },
+                    { 6, "NABIL", 4, "C", "/Assets/Images/Coach/NABIL C.jpg" }
                 });
 
             migrationBuilder.InsertData(
@@ -580,10 +581,10 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                 columns: new[] { "Id", "FormulaRank", "IdCoach", "IdLocation", "IdTrainingProgram", "MaxParticipants", "SessionDate", "SessionHour" },
                 values: new object[,]
                 {
-                    { 1, 3, 1, 2, 1, 15, new DateTime(2023, 1, 24, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3593), new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3655) },
-                    { 2, 3, 5, 7, 2, 20, new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3672), new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3674) },
-                    { 3, 3, 5, 9, 3, 30, new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3685), new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3687) },
-                    { 4, 3, 3, 8, 4, 22, new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3698), new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3699) },
+                    { 1, 3, 1, 2, 1, 15, new DateTime(2023, 1, 24, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1546), new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1603) },
+                    { 2, 3, 5, 7, 2, 20, new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1619), new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1621) },
+                    { 3, 3, 5, 9, 3, 30, new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1632), new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1634) },
+                    { 4, 3, 3, 8, 4, 22, new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1644), new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1646) },
                     { 5, 3, 1, 3, 2, 18, null, null }
                 });
 
