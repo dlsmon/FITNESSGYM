@@ -9,7 +9,7 @@
 <table class="table">
     <thead>
         <tr>
-             <th>
+            <th>
                 @Html.DisplayNameFor(model => model.Id)
             </th>
             <th>
@@ -25,7 +25,11 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
+            //User can only see Reservations that are not cancelled
+            @if (item.Cancelled != Reservation.eCancelled.Yes)
+            {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Id)
@@ -39,9 +43,20 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Session.Id)
                     </td>
+                    <td>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <form asp-action="CancelReservation" asp-route-id="@item.Id">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <div class="form-group">
+                                    <input type="submit" value="Cancel Reservation" class="btn btn-primary" />
+                                </div>
+                            </form>
+                        }
+                    </td>
                 </tr>
-               
-}
+            }
+        }
 
     </tbody>
 </table>

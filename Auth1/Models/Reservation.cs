@@ -25,7 +25,6 @@ namespace FITNESSGYM.Models
         //Reservation was created by client but the client didn't participate = 2.
         public eCancelled? Cancelled { get; set; }
         public int? IdSession { get; set; }
-        public string? IdUser { get; set; }
 
         public int? IdClient { get; set; }
 
@@ -40,10 +39,10 @@ namespace FITNESSGYM.Models
         {
 
         }
-        public Reservation(int IdSession, string IdUser)
+        public Reservation(int IdSession, int IdClient)
         {
             this.Cancelled = 0;
-            this.IdUser = IdUser;
+            this.IdClient = IdClient;
             this.IdSession = IdSession;
         }
 

@@ -177,13 +177,15 @@ namespace FITNESSGYM.Controllers
             {
                 try
                 {
-                    var session = await _context.Session
+                    Session session = await _context.Session
                                     .FirstOrDefaultAsync(m => m.Id == id);
                     //show all reservations of session.Id that were not cancelled by the user
                     var reservations = await _context.Reservation
                         .Where(m => m.IdSession == id)
                         .Where(m => m.Cancelled == Reservation.eCancelled.No)
                         .ToListAsync();
+                    Client client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
+                        
                     if (session != null)
                     {
                         //Check if Session will start in more than 30 minutes from now
@@ -193,11 +195,12 @@ namespace FITNESSGYM.Controllers
                             if (reservations.Count() < session.MaxParticipants)
                             {
                                 //Check if the user already reserved and not cancelled
-                                if (!reservations.Any(e => e.IdUser == User.Identity.Name))
+                                //if (!reservations.Any(e => e.IdUser == User.Identity.Name))
+                                if (!reservations.Any(e => e.IdClient == client.ID))
                                 {
                                     //User can create a resevation 
                                     //FormulaRanking not added yet
-                                    Reservation newReservation = new Reservation(session.Id, User.Identity.Name);
+                                    Reservation newReservation = new Reservation(session.Id, client.ID);
                                     _context.Add(newReservation);
                                     await _context.SaveChangesAsync();
                                 }
