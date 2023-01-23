@@ -23,8 +23,8 @@ namespace FITNESSGYM.Controllers
         // GET: Reservation
         public async Task<IActionResult> Index()
         {
-            var reservations = _context.Reservation.Include(r => r.Session).ToListAsync();
-            return View(await reservations);
+            var reservations = _context.Reservation.Include(r => r.Session);
+            return View(await reservations.ToListAsync());
         }
 
         // GET: Reservation
@@ -52,16 +52,16 @@ namespace FITNESSGYM.Controllers
             {
                 try
                 {
-                    var session = await _context.Session
+                    Session session = await _context.Session
                                     .FirstOrDefaultAsync(m => m.Id == id);
                     //show all reservations of session.Id that were not cancelled by the user
                     var reservations = await _context.Reservation
                         .Where(m => m.IdSession == id)
                         .Where(m => m.Cancelled == Reservation.eCancelled.No)
                         .ToListAsync();
-                    var client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
+                    Client client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
 
-                    if (session != null)
+                    if (session != null && client != null)
                     {
                         //Check if Session will start in more than 30 minutes from now
                         if (session.SessionDate > DateTime.Now.AddMinutes(-30))
@@ -96,7 +96,7 @@ namespace FITNESSGYM.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(MyReservations));
+                return RedirectToAction("Index", "Session");
             }
             return View(id);
         }
