@@ -10,6 +10,7 @@ public class FITNESSGYMContext : IdentityDbContext<IdentityUser>
     public FITNESSGYMContext(DbContextOptions<FITNESSGYMContext> options)
         : base(options)
     {
+
     }
 
     protected override void OnModelCreating(ModelBuilder builder)
@@ -20,5 +21,5 @@ public class FITNESSGYMContext : IdentityDbContext<IdentityUser>
         // Add your customizations after calling base.OnModelCreating(builder);
     }
 
-
+   
 }

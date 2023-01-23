@@ -19,14 +19,60 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
                         </li>
+                        
+                        <div class="btn-group">
+                          <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            ADMIN
+                          </button>
+                          <ul class="dropdown-menu">
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="nav-link text-dark" asp-area="" asp-controller="TrainingPrograms" asp-action="Index">Training Programs</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Sessions</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Reservations</a></li>
+                          </ul>
+                        </div>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Session" asp-action="Index">Session</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="TrainingProgram" asp-action="Index">TrainingProgram</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="Index">Reservation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Coaches</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Formula</a>
+                        </li>
                     </ul>
+                    <div class="btn-group">
+                          <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            My Account
+                          </button>
+                          <ul class="dropdown-menu">
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="Index">My Reservations</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">My Information</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">My Goals</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">My Favourites</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">My Formula/Subscription</a></li>
+                          </ul>
+                        </div>
+                        
                     <partial name="_LoginPartial" />
                 </div>
             </div>
