@@ -62,7 +62,7 @@ namespace FITNESSGYM.Models
         public virtual ICollection<Reservation>? Reservation { get; set; }
         public virtual ICollection<Goal>? Goal { get; set; }
         public virtual ICollection<FavoriteCoach>? FavoriteCoach { get; set; }
-        public virtual ICollection<FavoriteTrainingProgram>? TrainingProgram { get; set; }
+        public virtual ICollection<FavoriteTrainingProgram>? FavoriteTrainingProgram { get; set; }
         public virtual ICollection<FavoriteExercise>? FavoriteExercice { get; set; }
         public virtual ICollection<FavoriteLocation>? FavoriteLocation { get; set; }
 
