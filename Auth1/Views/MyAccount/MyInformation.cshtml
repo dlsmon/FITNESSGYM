@@ -103,7 +103,7 @@
 
 
         <!-- Header -->
-        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: src(/wwwroot/Assets/Images/fit.jpg); background-size: cover; background-position: center top;">
+        <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../../wwwroot/Assets/Site/fit.jpg); background-size: cover; background-position: center top;">
 
             <!-- Mask -->
             <span class="mask bg-gradient-default opacity-8"></span>
@@ -112,7 +112,7 @@
             <div class="container-fluid d-flex align-items-center">
                 <div class="row">
                     <div class="col-lg-7 col-md-10">
-                        <h1 class="display-2 text-white">Hello Rachel ! </h1>
+                        <h1 class="display-2 text-white">Hello @Model.FirstName ! </h1>
                         <p class="text-white mt-0 mb-5">This is your profile page. You can see and edit your informations. You can also see the progress you've made with your work through time.</p>
                         <!--<a href="#!" class="btn btn-info">Edit profile</a>-->
                     </div>
@@ -129,7 +129,7 @@
                             <div class="col-lg-3 order-lg-2">
                                 <div class="card-profile-image">
                                     <a href="#">
-                                        <img src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" class="rounded-circle">
+                                        <img src="https://demos.creative-tim.com/argon-dashboard/assets-old/img/theme/team-4.jpg" class="rounded-circle"> <!--Remplacver par model image-->
                                     </a>
                                 </div>
                             </div>
@@ -161,14 +161,14 @@
                             </div>
                             <div class="text-center">
                                 <h3>
-                                    Rachel WILLIAMS<span class="font-weight-light">, 28</span>
+                                    @Model.FirstName @Model.LastName<span class="font-weight-light">, @Model.Birthdate</span> <!--Remplacer par âge-->
                                 </h3>
                                 <div class="h5 font-weight-300">
                                     <i class="ni location_pin mr-2"></i>Paris, France
                                 </div>
-                                <div class="h5 mt-4">
+                                <!--<div class="h5 mt-4">
                                     <i class="ni business_briefcase-24 mr-2"></i>Member since 2022-06-12
-                                </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -201,19 +201,19 @@
                                         <div class="col-lg-4">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-first-name">First name</label>
-                                                <input type="text" id="input-first-name" class="form-control form-control-alternative" disabled="disabled" placeholder="First name" value="William">
+                                                <input type="text" id="input-first-name" class="form-control form-control-alternative" disabled="disabled" placeholder="First Name" value="@Model.FirstName">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-last-name">Last name</label>
-                                                <input type="text" id="input-last-name" class="form-control form-control-alternative" disabled="disabled" placeholder="Last name" value="Rachel">
+                                                <input type="text" id="input-last-name" class="form-control form-control-alternative" disabled="disabled" placeholder="Last name" value="@Model.LastName">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-birthdate">Birthdate</label>
-                                                <input type="datetime" id="input-sex" class="form-control form-control-alternative" disabled="disabled" placeholder="birthdate" value="1992-01-28">
+                                                <input type="datetime" id="input-sex" class="form-control form-control-alternative" disabled="disabled" placeholder="birthdate" value="@Model.Birthdate">
                                             </div>
                                         </div>
                                     </div>
@@ -221,13 +221,13 @@
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-phonenumber">Phone number</label>
-                                                <input type="text" id="input-phonenumber" class="form-control form-control-alternative" disabled="disabled" placeholder="Phonenumber" value="0622354565">
+                                                <input type="text" id="input-phonenumber" class="form-control form-control-alternative" disabled="disabled" placeholder="Phone number" value="@Model.Phonenumber">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-email">Email address</label>
-                                                <input type="email" id="input-email" class="form-control form-control-alternative" disabled="disabled" placeholder="rachel.w@example.com">
+                                                <input type="email" id="input-email" class="form-control form-control-alternative" disabled="disabled" placeholder="rachel.w@example.com" value=""> <!-- Remplacer par email-->
                                             </div>
                                         </div>
                                     </div>
@@ -235,19 +235,19 @@
                                         <div class="col-lg-4">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-sex">Sex</label>
-                                                <input type="text" id="input-sex" class="form-control form-control-alternative" disabled="disabled" placeholder="sex" value="Women">
+                                                <input type="text" id="input-sex" class="form-control form-control-alternative" disabled="disabled" placeholder="sex" value="@Model.Sex">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-weight">Weight</label>
-                                                <input type="text" id="input-weight" class="form-control form-control-alternative" placeholder="Weight" value="78 Kg">
+                                                <input type="text" id="input-weight" class="form-control form-control-alternative" placeholder="Weight" value="@Model.Weight kg">
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-height">Height</label>
-                                                <input type="text" id="input-height" class="form-control form-control-alternative" disabled="disabled" placeholder="Height">
+                                                <input type="text" id="input-height" class="form-control form-control-alternative" disabled="disabled" placeholder="Height" value="@Model.Height cm">
                                             </div>
                                         </div>
                                     </div>
@@ -260,7 +260,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-address">Address</label>
-                                                <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09" type="text">
+                                                <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" value="@Model.Adresse" type="text">
                                             </div>
                                         </div>
                                     </div>
@@ -268,19 +268,19 @@
                                         <div class="col-lg-4">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-city">City</label>
-                                                <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="Paris">
+                                                <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" value="Paris"> <!--Remplacer-->
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-country">Country</label>
-                                                <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="France">
+                                                <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" value="France"> <!---Remplacer-->
                                             </div>
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-country">Postal code</label>
-                                                <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code">
+                                                <input type="number" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal code" value="France"> <!--Remplacer-->
                                             </div>
                                         </div>
                                     </div>
@@ -293,13 +293,13 @@
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-hobies">Hobies</label>
-                                                <input type="text" id="input-hobies" class="form-control form-control-alternative" placeholder="Hobies" value="sport, danse, ski">
+                                                <input type="text" id="input-hobies" class="form-control form-control-alternative" placeholder="Hobies" value="@Model.Hobbies">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-disease">Disease</label>
-                                                <input type="text" id="input-disease" class="form-control form-control-alternative" placeholder="none">
+                                                <input type="text" id="input-disease" class="form-control form-control-alternative" placeholder="none" value="@Model.Diseases">
                                             </div>
                                         </div>
                                     </div>
