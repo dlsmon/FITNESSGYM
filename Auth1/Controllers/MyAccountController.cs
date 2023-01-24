@@ -126,31 +126,25 @@ namespace FITNESSGYM.Controllers
 
 
 
-
         [Authorize]
-        public async Task<IActionResult> MyQuiz1()
+        public async Task<IActionResult> MyQuiz1() // Show details
         {
-            return View();
+            var client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
+
+            if (client == null)
+            {
+                return RedirectToAction("Index", "MyAccount");
+            }
+            return View(client);
         }
 
-        [Authorize]
-        public async Task<IActionResult> MyQuiz2()
-        {
-            return View();
-        }
 
-        [Authorize]
-        public async Task<IActionResult> Welcome()
-        {
-            return View();
-        }
-
-        // POST: TrainingProgram/Create
+        // POST: MyAccount/MyQuiz1/{IdClient}
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateMyQuiz([Bind("Id,Name,Description,Intensity,Duration,Calories")] Client client)
+        public async Task<IActionResult> CreateMyQuiz1([Bind("Id,Name,Description,Intensity,Duration,Calories")] Client client)
         {
             if (ModelState.IsValid)
             {
@@ -161,5 +155,29 @@ namespace FITNESSGYM.Controllers
             }
             return View(client);
         }
+
+
+
+        [Authorize]
+        public async Task<IActionResult> MyQuiz2()
+        {
+            return View();
+        }
+
+
+
+
+
+
+
+
+
+        [Authorize]
+        public async Task<IActionResult> Welcome()
+        {
+            return View();
+        }
+
+        
     }
 }
