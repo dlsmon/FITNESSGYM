@@ -39,8 +39,6 @@ namespace FITNESSGYM.Controllers
         }
 
 
-
-
         // POST: MyAccount/SaveMyInformation/{IdClient}
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -130,7 +128,19 @@ namespace FITNESSGYM.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> MyQuiz()
+        public async Task<IActionResult> MyQuiz1()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> MyQuiz2()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Welcome()
         {
             return View();
         }
