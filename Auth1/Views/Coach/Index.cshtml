@@ -1,0 +1,84 @@
+﻿@model IEnumerable<FITNESSGYM.Models.Coach>
+@{
+    <div class="bp11hl_paragraph_reference field field--name-field-bp11hl-paragraph-reference field--type-entity-reference field--label-hidden field__item">
+        <div class="paragraph paragraph-342 paragraph--type--bp11-header-light paragraph--view-mode--default">
+
+            <div class="container-bp11hl container text-center">
+
+                <div class="bp11hl_title field field--name-field-bp11hl-title field--type-string field--label-hidden field__item"><h1 class="field__item"> l'entreneure de notre club</h1></div>
+
+
+            </div>
+
+        </div>
+    </div>
+}
+<div class="container">
+
+<input type="text" id="myFilter" class="form-control" onkeyup="myFunction()" placeholder="Search for Speciality..">
+</div>
+
+
+    <div class="d-flex flex-wrap justify-content-center" id="myItems">
+<tbody>
+       
+
+@foreach (var item in Model) {
+            <div class=" m-3 shadow">
+                <div class="card border border-0  rounded-2" style="width: 18rem;">
+                        <img   src="@item.Photo"
+                         height="200px" width="300px">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                             @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</h5>
+                            <h5 class="card-text" >
+                                @Html.DisplayFor(modelItem => item.Speciality.Name)
+                            </h5>
+                            <form asp-action="AddToFavoris" method="post">
+                                <input type="hidden" name="fPhoto" value="@item.Photo">
+                                <input type="hidden" name="fFirstName" value="@item.FirstName">
+                                <input type="hidden" name="fLastName" value="@item.LastName">
+                                <input type="hidden" name="postid" value="@item.ID">
+
+                              <a class="btn-neoness-small btn_neoness-gradient-red"
+                            style="margin-bottom:25px; margin-top:-10px;" tabindex="-1">Ajouter Aux Favoris</a>
+
+                            </form>
+
+                
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a>
+                          @*  <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>*@
+                          @*  <a href="#" class="card-link">Another link</a>*@
+                    </div>
+                    </div>
+              </div>  
+              
+            <td>
+                
+            </td>
+           
+        }
+        <script>
+            function myFunction() {
+                var input, filter, cards, cardContainer, h5, title, i;
+                input = document.getElementById("myFilter");
+                filter = input.value.toUpperCase();
+                cardContainer = document.getElementById("myItems");
+                cards = cardContainer.getElementsByClassName("card");
+                for (i = 0; i < cards.length; i++) {
+                    title = cards[i].querySelector(".card-body h5.card-text");
+                    if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                        cards[i].style.display = "";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            }
+                </script>
+    </tbody>
+</div>
+
+
+
+

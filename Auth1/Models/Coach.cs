@@ -8,19 +8,21 @@ namespace FITNESSGYM.Models
     public class Coach
     {
         public int ID { get; set; }
-        
-        public string? Description { get; set; }
-        
-        //[Required(ErrorMessage = "Please choose file to upload.")]
-        [DataType(DataType.Upload)]
-        [Display(Name = "Upload File")]
+        [Required]
+        [MaxLength(10)]
+        public string FirstName { get; set; }
+        [Required]
+        [MaxLength(10)]
+        public string LastName { get; set; }
+
         public string? Photo { get; set; }
+        [NotMapped]
+
+        public IFormFile? File { get; set; }
+
         [Display(Name = "Speciality")]
-
-
-        //foreign key
         public int? IdSpeciality { get; set; }
-       
+
         [ForeignKey("IdSpeciality")]
         public virtual Speciality? Speciality { get; set; }
 
