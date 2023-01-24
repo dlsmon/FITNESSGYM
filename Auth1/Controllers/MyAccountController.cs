@@ -18,7 +18,7 @@ namespace FITNESSGYM.Controllers
         [Authorize]
         public async Task<IActionResult> Index()
         {
-            var client = await _context.Client.FirstAsync(m => m.IdUser == User.Identity.Name);
+            var client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
 
             return View(client);
         }
@@ -31,6 +31,10 @@ namespace FITNESSGYM.Controllers
         {
             var client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
                 
+            if(client == null)
+            {
+                return RedirectToAction("Index", "MyAccount");
+            }
             return View(client);
         }
 
@@ -42,7 +46,7 @@ namespace FITNESSGYM.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SaveMyInformation(int id, [Bind("ID,FirstName,LastName,Sex,Height,Weight,Birthdate,Phonenumber,Adresse,Diseases,Hobbies")] Client client)
+        public async Task<IActionResult> EditMyInformation(int id, [Bind("ID,FirstName,LastName,Sex,Height,Weight,Birthdate,Phonenumber,Adresse,Diseases,Hobbies,Newsletter,Freetrial")] Client client)
         {
             if (id != client.ID)
             {
@@ -121,6 +125,9 @@ namespace FITNESSGYM.Controllers
 
             return View(client);
         }
+
+
+
 
         [Authorize]
         public async Task<IActionResult> MyQuiz()

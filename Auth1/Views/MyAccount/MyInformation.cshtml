@@ -130,7 +130,137 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="card-body">
+                            <form asp-action="EditMyInformation">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="ID" />
+
+                                <!-- Identity -->
+                                <h6 class="heading-small text-muted mb-4">My Identity</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label asp-for="FirstName" class="control-label"></label>
+                                                <input asp-for="FirstName" class="form-control" disabled="disabled"/>
+                                                <span asp-validation-for="FirstName" class="text-danger" ></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label asp-for="LastName" class="control-label"></label>
+                                                <input asp-for="LastName" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="LastName" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label asp-for="Birthdate" class="control-label"></label>
+                                                <input asp-for="Birthdate" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Birthdate" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label asp-for="Sex" class="control-label"></label>
+                                                <input asp-for="Sex" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Sex" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label asp-for="Height" class="control-label"></label>
+                                                <input asp-for="Height" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Height" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-4">
+                                            <div class="form-group">
+                                                <label asp-for="Weight" class="control-label"></label>
+                                                <input asp-for="Weight" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Weight" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+
+                                <!-- Address -->
+                                <h6 class="heading-small text-muted mb-4">My contact information</h6>
+                                <div class="pl-lg-4"> 
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label asp-for="Phonenumber" class="control-label"></label>
+                                                <input asp-for="Phonenumber" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Phonenumber" class="text-danger"></span>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label asp-for="IdUser" class="control-label">Email</label>
+                                                <input asp-for="IdUser" class="form-control" disabled="disabled"/>
+                                                <span asp-validation-for="IdUser" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <label asp-for="Adresse" class="control-label"></label>
+                                            <input asp-for="Adresse" class="form-control" disabled="disabled" />
+                                            <span asp-validation-for="Adresse" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr class="my-4">
+
+                                <!-- Description -->
+                                <h6 class="heading-small text-muted mb-4">About me</h6>
+                                <div class="pl-lg-4">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label asp-for="Diseases" class="control-label"></label>
+                                                <input asp-for="Diseases" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Diseases" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label asp-for="Hobbies" class="control-label"></label>
+                                                <input asp-for="Hobbies" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Hobbies" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label asp-for="Newsletter" class="control-label"></label>
+                                                <input asp-for="Newsletter" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Newsletter" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="form-group">
+                                                <label asp-for="Freetrial" class="control-label"></label>
+                                                <input asp-for="Freetrial" class="form-control" disabled="disabled" />
+                                                <span asp-validation-for="Freetrial" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--<div class="form-group">
+                                    <input type="submit" value="Save" class="btn btn-primary" />
+                                </div>-->
+                            </form>
+                        </div>
+
+                        @*<div class="card-body">                           
                             <form>
                                 <h6 class="heading-small text-muted mb-4">My Identity</h6>
                                 <div class="pl-lg-4">
@@ -189,7 +319,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group">
                                                 <label class="form-control-label" for="input-email">Email address</label>
-                                                <input type="email" id="input-email" class="form-control form-control-alternative" disabled="disabled" placeholder="name@example.com" value=""> <!-- Remplacer par email-->
+                                                <input type="email" id="input-email" class="form-control form-control-alternative" disabled="disabled" placeholder="name@example.com" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -245,7 +375,10 @@
                                     </div>                                                                                           
                                 </div>
                             </form>
-                        </div>
+                        </div>*@
+
+
+
                     </div>
                 </div>
             </div>
