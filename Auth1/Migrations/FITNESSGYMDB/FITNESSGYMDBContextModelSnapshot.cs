@@ -116,11 +116,18 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<int?>("IdSpeciality")
                         .HasColumnType("int");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(max)");
@@ -135,33 +142,50 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                         new
                         {
                             ID = 1,
+                            FirstName = "CEDERIC",
                             IdSpeciality = 1,
-                            Photo = "/Assets/Images/Quentin H.jfif"
+                            LastName = "O",
+                            Photo = "/Assets/Images/Coach/CEDRIC_O.jpg"
                         },
                         new
                         {
                             ID = 2,
-                            IdSpeciality = 2
+                            FirstName = "DELPHINE",
+                            IdSpeciality = 2,
+                            LastName = "G",
+                            Photo = "/Assets/Images/Coach/DELPHINE G.jpg"
                         },
                         new
                         {
                             ID = 3,
-                            IdSpeciality = 3
+                            FirstName = "FLORIAN",
+                            IdSpeciality = 3,
+                            LastName = "G",
+                            Photo = "/Assets/Images/Coach/FLORIAN_G.jpg"
                         },
                         new
                         {
                             ID = 4,
-                            IdSpeciality = 1
+                            FirstName = "GUILLAUME",
+                            IdSpeciality = 1,
+                            LastName = "P",
+                            Photo = "/Assets/Images/Coach/GUILLAUME P.jpg"
                         },
                         new
                         {
                             ID = 5,
-                            IdSpeciality = 1
+                            FirstName = "JESSUN",
+                            IdSpeciality = 1,
+                            LastName = "C",
+                            Photo = "/Assets/Images/Coach/JESSUN C.jpg"
                         },
                         new
                         {
                             ID = 6,
-                            IdSpeciality = 4
+                            FirstName = "NABIL",
+                            IdSpeciality = 4,
+                            LastName = "C",
+                            Photo = "/Assets/Images/Coach/NABIL C.jpg"
                         });
                 });
 
@@ -848,8 +872,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 1,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 24, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3593),
-                            SessionHour = new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3655)
+                            SessionDate = new DateTime(2023, 1, 24, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1546),
+                            SessionHour = new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1603)
                         },
                         new
                         {
@@ -859,8 +883,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 2,
                             MaxParticipants = 20,
-                            SessionDate = new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3672),
-                            SessionHour = new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3674)
+                            SessionDate = new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1619),
+                            SessionHour = new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1621)
                         },
                         new
                         {
@@ -870,8 +894,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 3,
                             MaxParticipants = 30,
-                            SessionDate = new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3685),
-                            SessionHour = new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3687)
+                            SessionDate = new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1632),
+                            SessionHour = new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1634)
                         },
                         new
                         {
@@ -881,8 +905,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 4,
                             MaxParticipants = 22,
-                            SessionDate = new DateTime(2023, 1, 25, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3698),
-                            SessionHour = new DateTime(2023, 1, 23, 6, 34, 24, 117, DateTimeKind.Local).AddTicks(3699)
+                            SessionDate = new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1644),
+                            SessionHour = new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1646)
                         },
                         new
                         {

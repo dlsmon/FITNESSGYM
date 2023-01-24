@@ -11,10 +11,10 @@ namespace FITNESSGYM.Data
 {
     public class FITNESSGYMDBContext : DbContext
     {
-        public FITNESSGYMDBContext (DbContextOptions<FITNESSGYMDBContext> options)
+        public FITNESSGYMDBContext(DbContextOptions<FITNESSGYMDBContext> options)
             : base(options)
         {
-            
+
         }
 
         //Seeding Database
