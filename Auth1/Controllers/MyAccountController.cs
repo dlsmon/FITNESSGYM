@@ -23,14 +23,62 @@ namespace FITNESSGYM.Controllers
             return View(client);
         }
 
+
+
         //must be logged in
         [Authorize]
         public async Task<IActionResult> MyInformation() // Show details
         {
-            var client = await _context.Client.FirstAsync(m => m.IdUser == User.Identity.Name);
+            var client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
                 
             return View(client);
         }
+
+
+
+
+        // POST: MyAccount/SaveMyInformation/{IdClient}
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SaveMyInformation(int id, [Bind("ID,FirstName,LastName,Sex,Height,Weight,Birthdate,Phonenumber,Adresse,Diseases,Hobbies")] Client client)
+        {
+            if (id != client.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(client);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ClientExists(client.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(client);
+        }
+
+        private bool ClientExists(int id)
+        {
+            return (_context.Client?.Any(e => e.ID == id)).GetValueOrDefault();
+        }
+
+
+
 
         [Authorize]
         public async Task<IActionResult> ChangePassword()
