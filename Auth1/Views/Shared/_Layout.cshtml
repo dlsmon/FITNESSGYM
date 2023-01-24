@@ -62,17 +62,21 @@
                           </button>
                           <ul class="dropdown-menu">
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="MyReservations">My Reservations</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="MyAccount" asp-action="MyInformation">My Information</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">My Information</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="MyAccount" asp-action="ChangePassword">Change Password</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">My Goals</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="MyAccount" asp-action="MySubcription">My Formula/Subscription</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">My Favourites</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="MyReservations">My Reservations</a></li>                                                   
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">My Formula/Subscription</a></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="MyAccount" asp-action="MyFavourites">My Favourites</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="MyAccount" asp-action="MyGoal">My Goals</a></li>
+                            
+                            
                           </ul>
-                        </div>
+                    </div>
                         
                     <partial name="_LoginPartial" />
                 </div>
