@@ -1,5 +1,6 @@
 ﻿using FITNESSGYM.Data;
 using FITNESSGYM.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -47,11 +48,13 @@ namespace FITNESSGYM.Controllers
                 return View();
             }
 
-            // POST: Formula/Create
-            // To protect from overposting attacks, enable the specific properties you want to bind to.
-            // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-            [HttpPost]
-            [ValidateAntiForgeryToken]
+        // POST: Formula/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+         [Authorize(Roles = "Admin")]
+         [HttpPost]
+         [ValidateAntiForgeryToken]
+            
             public async Task<IActionResult> Create([Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Controllers.FormulaController formula)
             {
                 if (ModelState.IsValid)
