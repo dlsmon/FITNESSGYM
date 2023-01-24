@@ -19,9 +19,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
-                        </li>
+                       
                         
                         <div class="btn-group">
                           <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,13 +44,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="TrainingProgram" asp-action="Index">TrainingProgram</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="Index">Reservation</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="Index">All Reservations</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Coaches</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Coach" asp-action="Index">Coaches</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">Formula</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Formula" asp-action="Index">Formula</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Location" asp-action="Index">Location</a>
                         </li>
                     </ul>
                     <div class="btn-group">
@@ -67,7 +68,7 @@
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="nav-link text-dark" asp-area="" asp-controller="MyAccount" asp-action="MySubcription">My Formula/Subscription</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="Index">My Reservations</a></li>                                                   
+                            <li><a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="MyReservations">My Reservations</a></li>                                                   
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="nav-link text-dark" asp-area="" asp-controller="MyAccount" asp-action="MyFavourites">My Favourites</a></li>
                             <li><hr class="dropdown-divider"></li>

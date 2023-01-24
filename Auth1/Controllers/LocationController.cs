@@ -1,103 +1,91 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using FITNESSGYM.Data;
+﻿using FITNESSGYM.Data;
 using FITNESSGYM.Models;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
-using System.Security.Claims;
-using SendGrid.Helpers.Mail;
-using NuGet.Protocol;
-using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FITNESSGYM.Controllers
 {
-    public class SessionController : Controller
+    public class LocationController : Controller
     {
         private readonly FITNESSGYMDBContext _context;
-        
 
-        public SessionController(FITNESSGYMDBContext context)
+        public LocationController(FITNESSGYMDBContext context)
         {
             _context = context;
         }
 
-        // GET: Session
+        // GET: Location
         public async Task<IActionResult> Index()
         {
-              return _context.Session != null ? 
-                          View(await _context.Session.ToListAsync()) :
-                          Problem("Entity set 'FITNESSGYMDBContext.Session'  is null.");
+            return _context.Location != null ?
+                        View(await _context.Location.ToListAsync()) :
+                        Problem("Entity set 'FITNESSGYMDBContext.Location'  is null.");
         }
 
-        // GET: Session/Details/5
+        // GET: Location/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Session == null)
+            if (id == null || _context.Location == null)
             {
                 return NotFound();
             }
 
-            var session = await _context.Session
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (session == null)
+            var location = await _context.Location
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (location == null)
             {
                 return NotFound();
             }
 
-            return View(session);
+            return View(location);
         }
 
-        // GET: Session/Create
+        // GET: Location/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Session/Create
+        // POST: Location/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SessionDate,SessionHour,MaxParticipants,FormulaRank,IdCoach,IdLocation")] Session session)
+        public async Task<IActionResult> Create([Bind("ID,Name,Address,City,PostalCode,MaxParticipants")] Location location)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(session);
+                _context.Add(location);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(session);
+            return View(location);
         }
 
-        // GET: Session/Edit/5
+        // GET: Location/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Session == null)
+            if (id == null || _context.Location == null)
             {
                 return NotFound();
             }
 
-            var session = await _context.Session.FindAsync(id);
-            if (session == null)
+            var location = await _context.Location.FindAsync(id);
+            if (location == null)
             {
                 return NotFound();
             }
-            return View(session);
+            return View(location);
         }
 
-        // POST: Session/Edit/5
+        // POST: Location/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SessionDate,SessionHour,MaxParticipants,FormulaRank,IdCoach,IdLocation")] Session session)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Address,City,PostalCode,MaxParticipants")] Location location)
         {
-            if (id != session.Id)
+            if (id != location.ID)
             {
                 return NotFound();
             }
@@ -106,12 +94,12 @@ namespace FITNESSGYM.Controllers
             {
                 try
                 {
-                    _context.Update(session);
+                    _context.Update(location);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SessionExists(session.Id))
+                    if (!LocationExists(location.ID))
                     {
                         return NotFound();
                     }
@@ -122,50 +110,49 @@ namespace FITNESSGYM.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(session);
+            return View(location);
         }
 
-        // GET: Session/Delete/5
+        // GET: Location/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Session == null)
+            if (id == null || _context.Location == null)
             {
                 return NotFound();
             }
 
-            var session = await _context.Session
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (session == null)
+            var location = await _context.Location
+                .FirstOrDefaultAsync(m => m.ID == id);
+            if (location == null)
             {
                 return NotFound();
             }
 
-            return View(session);
+            return View(location);
         }
 
-        // POST: Session/Delete/5
+        // POST: Location/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Session == null)
+            if (_context.Location == null)
             {
-                return Problem("Entity set 'FITNESSGYMDBContext.Session'  is null.");
+                return Problem("Entity set 'FITNESSGYMDBContext.Location'  is null.");
             }
-            var session = await _context.Session.FindAsync(id);
-            if (session != null)
+            var location = await _context.Location.FindAsync(id);
+            if (location != null)
             {
-                _context.Session.Remove(session);
+                _context.Location.Remove(location);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-
-        private bool SessionExists(int id)
+        private bool LocationExists(int id)
         {
-          return (_context.Session?.Any(e => e.Id == id)).GetValueOrDefault();
+            return (_context.Location?.Any(e => e.ID == id)).GetValueOrDefault();
         }
     }
 }

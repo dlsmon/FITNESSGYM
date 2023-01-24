@@ -16,9 +16,8 @@ namespace FITNESSGYM.Data.Seeding
             //Remarque : le Id n'est pas affiché dans la vue
 
             //Exercise 
-
-
-                    //Perte de poids : cardio
+            
+            //Perte de poids : cardio
 
             modelBuilder.Entity<Exercise>().HasData(
                 new Exercise()
@@ -439,7 +438,9 @@ namespace FITNESSGYM.Data.Seeding
                 new Coach()
                 {
                     ID = 1,
-                    Photo = "/Assets/Images/Quentin H.jfif",                   
+                    FirstName="CEDERIC",
+                    LastName="O",
+                    Photo = "/Assets/Images/Coach/CEDRIC_O.jpg",                   
                     IdSpeciality = 1,
                     
                 });
@@ -447,8 +448,10 @@ namespace FITNESSGYM.Data.Seeding
             new Coach()
                 {
                     ID = 2,
-                    //Photo = "",
-                    IdSpeciality = 2,
+                FirstName = "DELPHINE",
+                LastName = "G",
+                Photo = "/Assets/Images/Coach/DELPHINE G.jpg",
+                IdSpeciality = 2,
                     
                 });
 
@@ -456,7 +459,9 @@ namespace FITNESSGYM.Data.Seeding
                 new Coach()
                 {
                     ID = 3,
-                    //Photo = "",
+                    FirstName = "FLORIAN",
+                    LastName = "G",
+                    Photo = "/Assets/Images/Coach/FLORIAN_G.jpg",
                     IdSpeciality = 3,
                     
                 });
@@ -465,7 +470,9 @@ namespace FITNESSGYM.Data.Seeding
                 new Coach()
                 {
                     ID = 4,
-                    //Photo = "",
+                    FirstName = "GUILLAUME",
+                    LastName = "P",
+                    Photo = "/Assets/Images/Coach/GUILLAUME P.jpg",
                     IdSpeciality = 1,
                     
                 });
@@ -474,7 +481,9 @@ namespace FITNESSGYM.Data.Seeding
                 new Coach()
                 {
                     ID = 5,
-                    //Photo = "",
+                    FirstName = "JESSUN",
+                    LastName = "C",
+                    Photo = "/Assets/Images/Coach/JESSUN C.jpg",
                     IdSpeciality = 1,
                     
                 });
@@ -483,7 +492,9 @@ namespace FITNESSGYM.Data.Seeding
                 new Coach()
                 {
                     ID = 6,
-                    //Photo = "",
+                    FirstName = "NABIL",
+                    LastName = "C",
+                    Photo = "/Assets/Images/Coach/NABIL C.jpg",
                     IdSpeciality = 4,
                     
                 });
