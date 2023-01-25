@@ -451,8 +451,14 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     b.Property<int>("Frequency")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("GoalDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("IdClient")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("Weight")
                         .HasColumnType("int");
@@ -782,9 +788,6 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     b.Property<int?>("IdSession")
                         .HasColumnType("int");
 
-                    b.Property<string>("IdUser")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("IdClient");
@@ -872,8 +875,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 1,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 24, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1546),
-                            SessionHour = new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1603)
+                            SessionDate = new DateTime(2023, 1, 26, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2177),
+                            SessionHour = new DateTime(2023, 1, 25, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2257)
                         },
                         new
                         {
@@ -883,8 +886,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 2,
                             MaxParticipants = 20,
-                            SessionDate = new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1619),
-                            SessionHour = new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1621)
+                            SessionDate = new DateTime(2023, 1, 27, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2286),
+                            SessionHour = new DateTime(2023, 1, 25, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2290)
                         },
                         new
                         {
@@ -894,8 +897,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 3,
                             MaxParticipants = 30,
-                            SessionDate = new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1632),
-                            SessionHour = new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1634)
+                            SessionDate = new DateTime(2023, 1, 27, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2360),
+                            SessionHour = new DateTime(2023, 1, 25, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2365)
                         },
                         new
                         {
@@ -905,8 +908,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 4,
                             MaxParticipants = 22,
-                            SessionDate = new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1644),
-                            SessionHour = new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1646)
+                            SessionDate = new DateTime(2023, 1, 27, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2389),
+                            SessionHour = new DateTime(2023, 1, 25, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2393)
                         },
                         new
                         {
@@ -1227,7 +1230,7 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
             modelBuilder.Entity("FITNESSGYM.Models.FavoriteTrainingProgram", b =>
                 {
                     b.HasOne("FITNESSGYM.Models.Client", "Client")
-                        .WithMany("TrainingProgram")
+                        .WithMany("FavoriteTrainingProgram")
                         .HasForeignKey("IdClient")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -1355,11 +1358,11 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
 
                     b.Navigation("FavoriteLocation");
 
+                    b.Navigation("FavoriteTrainingProgram");
+
                     b.Navigation("Goal");
 
                     b.Navigation("Reservation");
-
-                    b.Navigation("TrainingProgram");
                 });
 
             modelBuilder.Entity("FITNESSGYM.Models.Exercise", b =>

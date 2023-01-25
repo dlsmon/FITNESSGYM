@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace FITNESSGYM.Migrations.FITNESSGYMDB
 {
     /// <inheritdoc />
-    public partial class MyMigration : Migration
+    public partial class addmodels : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -156,6 +156,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Weight = table.Column<int>(type: "int", nullable: true),
+                    UpdateDate = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    GoalDate = table.Column<DateTime>(type: "datetime2", nullable: true),
                     Frequency = table.Column<int>(type: "int", nullable: false),
                     CaloriesBurnt = table.Column<int>(type: "int", nullable: true),
                     IdClient = table.Column<int>(type: "int", nullable: false)
@@ -420,7 +422,6 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Cancelled = table.Column<int>(type: "int", nullable: true),
                     IdSession = table.Column<int>(type: "int", nullable: true),
-                    IdUser = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     IdClient = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
@@ -552,8 +553,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
 
             migrationBuilder.InsertData(
                 table: "Goal",
-                columns: new[] { "Id", "CaloriesBurnt", "Frequency", "IdClient", "Weight" },
-                values: new object[] { 1, 1000, 3, 1, 75 });
+                columns: new[] { "Id", "CaloriesBurnt", "Frequency", "GoalDate", "IdClient", "UpdateDate", "Weight" },
+                values: new object[] { 1, 1000, 3, null, 1, null, 75 });
 
             migrationBuilder.InsertData(
                 table: "IndividualProgram",
@@ -581,22 +582,22 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                 columns: new[] { "Id", "FormulaRank", "IdCoach", "IdLocation", "IdTrainingProgram", "MaxParticipants", "SessionDate", "SessionHour" },
                 values: new object[,]
                 {
-                    { 1, 3, 1, 2, 1, 15, new DateTime(2023, 1, 24, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1546), new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1603) },
-                    { 2, 3, 5, 7, 2, 20, new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1619), new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1621) },
-                    { 3, 3, 5, 9, 3, 30, new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1632), new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1634) },
-                    { 4, 3, 3, 8, 4, 22, new DateTime(2023, 1, 25, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1644), new DateTime(2023, 1, 23, 14, 38, 46, 450, DateTimeKind.Local).AddTicks(1646) },
+                    { 1, 3, 1, 2, 1, 15, new DateTime(2023, 1, 26, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2177), new DateTime(2023, 1, 25, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2257) },
+                    { 2, 3, 5, 7, 2, 20, new DateTime(2023, 1, 27, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2286), new DateTime(2023, 1, 25, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2290) },
+                    { 3, 3, 5, 9, 3, 30, new DateTime(2023, 1, 27, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2360), new DateTime(2023, 1, 25, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2365) },
+                    { 4, 3, 3, 8, 4, 22, new DateTime(2023, 1, 27, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2389), new DateTime(2023, 1, 25, 12, 51, 38, 692, DateTimeKind.Local).AddTicks(2393) },
                     { 5, 3, 1, 3, 2, 18, null, null }
                 });
 
             migrationBuilder.InsertData(
                 table: "Reservation",
-                columns: new[] { "Id", "Cancelled", "IdClient", "IdSession", "IdUser" },
+                columns: new[] { "Id", "Cancelled", "IdClient", "IdSession" },
                 values: new object[,]
                 {
-                    { 1, 0, 1, 1, null },
-                    { 2, 0, 1, 2, null },
-                    { 3, 0, 1, 3, null },
-                    { 4, 0, 1, 4, null }
+                    { 1, 0, 1, 1 },
+                    { 2, 0, 1, 2 },
+                    { 3, 0, 1, 3 },
+                    { 4, 0, 1, 4 }
                 });
 
             migrationBuilder.CreateIndex(

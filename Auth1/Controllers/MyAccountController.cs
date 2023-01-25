@@ -2,6 +2,7 @@
 using FITNESSGYM.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace FITNESSGYM.Controllers
@@ -30,8 +31,8 @@ namespace FITNESSGYM.Controllers
         public async Task<IActionResult> MyInformation() // Show details
         {
             var client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
-                
-            if(client == null)
+
+            if (client == null)
             {
                 return RedirectToAction("Index", "MyAccount");
             }
@@ -117,7 +118,7 @@ namespace FITNESSGYM.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> MyStatGraph()
+        public async Task<IActionResult> MyStatGraph()  //Faire tableau de préférence ?
         {
             var client = await _context.Client.FirstAsync(m => m.IdUser == User.Identity.Name);
 
@@ -127,15 +128,12 @@ namespace FITNESSGYM.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> MyQuiz1() // Show details
+        public async Task<IActionResult> MyQuiz1() // Require client information
         {
-            var client = await _context.Client.FirstOrDefaultAsync(m => m.IdUser == User.Identity.Name);
+            IsClientNull();
 
-            if (client == null)
-            {
-                return RedirectToAction("Index", "MyAccount");
-            }
-            return View(client);
+            return View();
+
         }
 
 
@@ -144,14 +142,16 @@ namespace FITNESSGYM.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateMyQuiz1([Bind("Id,Name,Description,Intensity,Duration,Calories")] Client client)
+        [Authorize]
+        public async Task<IActionResult> CreateMyQuiz1([Bind("ID,FirstName,LastName,Sex,Height,Weight,Birthdate,Phonenumber,Adresse,Diseases,Hobbies,Newsletter,Freetrial")] Client client)
         {
+
             if (ModelState.IsValid)
             {
                 client.IdUser = User.Identity.Name;
                 _context.Add(client);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("MyQuiz2", "MyAccount");
             }
             return View(client);
         }
@@ -159,15 +159,34 @@ namespace FITNESSGYM.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> MyQuiz2()
+        public async Task<IActionResult> MyQuiz2() // Require client goal
         {
+            IsClientNull();
+
             return View();
         }
 
 
-
-
-
+        // POST: MyAccount/MyQuiz2/{IdClient}
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize]
+        public async Task<IActionResult> CreateMyQuiz2([Bind("Id,Weight,UpdateDate,GoalDate,Frequency,CaloriesBurnt,IdClient")] Goal goal)
+        {
+            IsClientNull();
+            if (ModelState.IsValid)
+            {
+                var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+                goal.IdClient = client.ID;
+                _context.Add(goal);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Welcome", "MyAccount");
+            }
+            
+            return View(goal);
+        }
 
 
 
@@ -179,5 +198,28 @@ namespace FITNESSGYM.Controllers
         }
 
         
+        private bool IsClientNull()
+        {
+            var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+
+            if (client == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //private async Task<IActionResult> IsClientNull()
+        //{
+        //    var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+
+        //    if (client == null)
+        //    {
+        //        return RedirectToAction("MyQuiz1", "MyAccount");
+        //    }
+        //    return View(client);
+        //}
+
+
     }
 }
