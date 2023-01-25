@@ -36,5 +36,6 @@ namespace FITNESSGYM.Models
         {
             this.Price = Formula.Price * (100 - price) / 100;
         }
+       
     }
 }

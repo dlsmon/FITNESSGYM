@@ -67,13 +67,14 @@ namespace FITNESSGYM.Controllers
             }
 
 
-       
 
+        [Authorize]
         public async Task<IActionResult> CreateSupscription([Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Formula formula)
         {
-            if (User.Identity.Name ==null)
+            IsClientNull();
+            if (_context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name).Subscriptions.Any())
             {
-                Subscription newsubscription = new Subscription(DateTime.Now,Price,IdFormula,idClient);
+                Subscription newsubscription = new Subscription();
                 _context.Add(newsubscription);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -97,10 +98,20 @@ namespace FITNESSGYM.Controllers
                 return View(formula);
             }
 
-            // POST: Formula/Edit/5
-            // To protect from overposting attacks, enable the specific properties you want to bind to.
-            // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-            [HttpPost]
+        public async Task<IActionResult> IsClientNull()
+        {
+            var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+            if (client == null)
+            {
+                return RedirectToAction("MyQuiz1", "MyAccount");
+            }
+            return View(client);
+        }
+
+        // POST: Formula/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Formula formula)
             {

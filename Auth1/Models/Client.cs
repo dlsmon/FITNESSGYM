@@ -60,6 +60,7 @@ namespace FITNESSGYM.Models
         public eFreetrial? Freetrial { get; set; }
 
         public virtual ICollection<Reservation>? Reservation { get; set; }
+        public virtual ICollection<Subscription>? Subscriptions { get; set; }
         public virtual ICollection<Goal>? Goal { get; set; }
         public virtual ICollection<FavoriteCoach>? FavoriteCoach { get; set; }
         public virtual ICollection<FavoriteTrainingProgram>? FavoriteTrainingProgram { get; set; }
