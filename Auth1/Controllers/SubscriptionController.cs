@@ -50,8 +50,8 @@ namespace FITNESSGYM.Controllers
         // GET: Subscription/Create
         public IActionResult Create()
         {
-            ViewData["IdClient"] = new SelectList(_context.Client, "ID", "ID");
-            ViewData["IdFormula"] = new SelectList(_context.Formula, "ID", "Name");
+            ViewData["ClientEmail"] = new SelectList(_context.Client, "ID", "IdUser").OrderBy(s => s.Value);
+            ViewData["IdFormula"] = new SelectList(_context.Formula, "ID", "Name").OrderBy(s => s.Value); ;
             return View();
         }
 
@@ -61,11 +61,14 @@ namespace FITNESSGYM.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        [Authorize]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create([Bind("Id,Entrydate,Sortdate,Price,Discount,IdClient,IdFormula")] Subscription subscription)
         {
             if (ModelState.IsValid)
             {
+                //int price = subscription.Formula.Price;
+                //int? discountS = subscription.Discount;
+                
                 _context.Add(subscription);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

@@ -31,5 +31,10 @@ namespace FITNESSGYM.Models
         public int IdFormula { get; set; }
         [ForeignKey("IdFormula")]
         public virtual Formula? Formula { get; set; }
+
+        public void addPrice(int price)
+        {
+            this.Price = Formula.Price * (100 - price) / 100;
+        }
     }
 }

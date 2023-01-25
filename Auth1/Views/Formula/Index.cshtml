@@ -53,10 +53,12 @@
 
                             </div>
                         </div>
-
-                        <div class="btn_centered">
+                        @if (User.Identity.Name == null){
+                           <div class="btn_centered">
                             <a class="btn-neoness-small btn_neoness-gradient-red" asp-controller="Subscription" asp-action="Create" style="margin-bottom:25px; margin-top:-10px;" tabindex="-1">Inscrire</a>
-                        </div>
+                           </div>
+                        }
+                       
                         <!-- div options -->
 
                         <div class="tarifs_options-free text-align-left" style="margin-top:-10px; margin-bottom:15px; padding-bottom:20px;">

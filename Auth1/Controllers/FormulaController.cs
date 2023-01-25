@@ -55,7 +55,7 @@ namespace FITNESSGYM.Controllers
          [HttpPost]
          [ValidateAntiForgeryToken]
             
-            public async Task<IActionResult> Create([Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Controllers.FormulaController formula)
+            public async Task<IActionResult> Create([Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Formula formula)
             {
                 if (ModelState.IsValid)
                 {
@@ -66,8 +66,23 @@ namespace FITNESSGYM.Controllers
                 return View(formula);
             }
 
-            // GET: Formula/Edit/5
-            public async Task<IActionResult> Edit(int? id)
+
+       
+
+        public async Task<IActionResult> CreateSupscription([Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Formula formula)
+        {
+            if (User.Identity.Name ==null)
+            {
+                Subscription newsubscription = new Subscription(DateTime.Now,Price,IdFormula,idClient);
+                _context.Add(newsubscription);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(formula);
+        }
+
+        // GET: Formula/Edit/5
+        public async Task<IActionResult> Edit(int? id)
             {
                 if (id == null || _context.Formula == null)
                 {
