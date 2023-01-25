@@ -15,7 +15,7 @@ namespace FITNESSGYM.Models
         public DateTime? SessionDate { get; set; }
 
         [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:HH/mm/ss}", NullDisplayText = "Inconnue")]
+        [DisplayFormat(DataFormatString = "{0:HH:mm}", NullDisplayText = "Inconnue")]
         [Display(Name = "Session Hour")]
         public DateTime? SessionHour { get; set; }
 

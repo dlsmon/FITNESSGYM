@@ -7,16 +7,53 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FITNESSGYM.Data;
 using FITNESSGYM.Models;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
+
 
 namespace FITNESSGYM.Controllers
 {
     public class TrainingProgramController : Controller
     {
         private readonly FITNESSGYMDBContext _context;
+        private readonly IHostingEnvironment environment;
 
-        public TrainingProgramController(FITNESSGYMDBContext context)
+        public TrainingProgramController(FITNESSGYMDBContext context, IHostingEnvironment environment)
         {
             _context = context;
+            this.environment = environment;
+        }
+
+    public string UploadFile(IFormFile file, string urlImage)
+        {
+            try
+            {
+                if (file != null)
+                {
+                    string uploads = Path.Combine(environment.WebRootPath, "Assets\\Images\\TrainingProgram\\");
+                    string newPath = Path.Combine(uploads, file.FileName);
+                    if (!string.IsNullOrEmpty(urlImage))
+                    {
+                        string oldPath = Path.Combine(uploads, urlImage);
+                        if (oldPath != newPath)
+                        {
+                            System.IO.File.Delete(oldPath);
+                            file.CopyTo(new FileStream(newPath, FileMode.Create));
+                        }
+                    }
+                    else
+                    {
+                        file.CopyTo(new FileStream(newPath, FileMode.Create));
+                    }
+
+                    return file.FileName;
+                }
+
+                return urlImage;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // GET: TrainingProgram
@@ -51,15 +88,15 @@ namespace FITNESSGYM.Controllers
             return View();
         }
 
-        // POST: TrainingProgram/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Description,Intensity,Duration,Calories")] TrainingProgram trainingProgram)
+        public async Task<IActionResult> Create([Bind("Id,Name,Description,Intensity,Duration,Calories,Photo,File")] TrainingProgram trainingProgram)
         {
             if (ModelState.IsValid)
             {
+                string fileName = UploadFile(trainingProgram.File, trainingProgram.Photo);
+                trainingProgram.Photo = fileName != null ? "Assets\\Images\\TrainingProgram\\" + fileName : string.Empty;
                 _context.Add(trainingProgram);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -175,7 +212,7 @@ namespace FITNESSGYM.Controllers
                 sessions = sessions.Where(s => s.!.Contains(searchString));
             }*/
 
-            return View(await sessions.ToListAsync());
+            return View(await sessions.OrderBy(m => m.SessionDate).OrderBy(k => k.SessionHour).ToListAsync());
         }
         private bool TrainingProgramExists(int id)
         {
