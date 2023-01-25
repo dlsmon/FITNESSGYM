@@ -139,7 +139,7 @@
                                         <div class="col-lg-6">
                                             <div class="form-group focused">
                                                 <label class="form-control-label" for="input-weight">Weight goal : </label>
-                                                <input type="text" id="input-weight" class="form-control form-control-alternative" disabled="disabled" placeholder="Weight" value="@Model.Goal.LastOrDefault().Weight">
+                                                <input type="text" id="input-weight" class="form-control form-control-alternative" disabled="disabled" placeholder="Weight" value="@Html.DisplayFor(modelItem => modelItem.Goal.LastOrDefault().Weight)">
                                             </div>
                                         </div>
                                         <div class="col-lg-6">

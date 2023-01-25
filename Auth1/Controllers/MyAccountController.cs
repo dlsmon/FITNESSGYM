@@ -75,55 +75,6 @@ namespace FITNESSGYM.Controllers
             return View(client);
         }
 
-        private bool ClientExists(int id)
-        {
-            return (_context.Client?.Any(e => e.ID == id)).GetValueOrDefault();
-        }
-
-
-
-
-        [Authorize]
-        public async Task<IActionResult> ChangePassword()
-        {
-            var client = await _context.Client.FirstAsync(m => m.IdUser == User.Identity.Name);
-
-            return View(client);
-        }
-
-        [Authorize]
-        public IActionResult MySubscription()
-        {
-            return View();
-        }
-
-        [Authorize]
-        public IActionResult MyReservations()   //MyReservation = my planning
-        {
-            return View();
-        }
-
-        [Authorize]
-        public IActionResult MyFavourites()
-        {
-            return View();
-        }
-
-        [Authorize]
-        public async Task<IActionResult> MyGoal()
-        {
-            var client = await _context.Client.Include(r => r.Goal).FirstAsync(m => m.IdUser == User.Identity.Name);
-
-            return View(client);
-        }
-
-        [Authorize]
-        public async Task<IActionResult> MyStatGraph()  //Faire tableau de préférence ?
-        {
-            var client = await _context.Client.FirstAsync(m => m.IdUser == User.Identity.Name);
-
-            return View(client);
-        }
 
 
 
@@ -146,12 +97,39 @@ namespace FITNESSGYM.Controllers
         public async Task<IActionResult> CreateMyQuiz1([Bind("ID,FirstName,LastName,Sex,Height,Weight,Birthdate,Phonenumber,Adresse,Diseases,Hobbies,Newsletter,Freetrial")] Client client)
         {
 
+
             if (ModelState.IsValid)
             {
-                client.IdUser = User.Identity.Name;
-                _context.Add(client);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("MyQuiz2", "MyAccount");
+                if (IsClientNull())
+                {
+                    client.IdUser = User.Identity.Name;
+                    _context.Add(client);
+                    _context.SaveChanges();
+                    return RedirectToAction("Welcome", "MyAccount");
+                }
+                else
+                {
+                    var clientExists = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+
+                    clientExists.IdUser = User.Identity.Name;
+
+                    clientExists.FirstName = client.FirstName;
+                    clientExists.LastName = client.LastName;
+                    clientExists.Sex = client.Sex;
+                    clientExists.Height = client.Height;
+                    clientExists.Weight = client.Weight;
+                    clientExists.Birthdate = client.Birthdate;
+                    clientExists.Phonenumber = client.Phonenumber;
+                    clientExists.Adresse = client.Adresse;
+                    clientExists.Diseases = client.Diseases;
+                    clientExists.Hobbies = client.Hobbies;
+                    clientExists.Newsletter = client.Newsletter;
+                    clientExists.Freetrial = client.Freetrial;
+                    _context.Update(clientExists);
+                    _context.SaveChanges();
+                    return RedirectToAction("Welcome", "MyAccount");
+                }
+
             }
             return View(client);
         }
@@ -175,20 +153,19 @@ namespace FITNESSGYM.Controllers
         [Authorize]
         public async Task<IActionResult> CreateMyQuiz2([Bind("Id,Weight,UpdateDate,GoalDate,Frequency,CaloriesBurnt,IdClient")] Goal goal)
         {
-            IsClientNull();
-            if (ModelState.IsValid)
+            if (!IsClientNull())
             {
-                var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
-                goal.IdClient = client.ID;
-                _context.Add(goal);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Welcome", "MyAccount");
+                if (ModelState.IsValid)
+                {
+                    var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+                    goal.IdClient = client.ID;
+                    _context.Add(goal);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction("MyGoal", "MyAccount");
+                }
             }
-            
-            return View(goal);
+            return RedirectToAction("MyQuiz1", "MyAccount");
         }
-
-
 
 
         [Authorize]
@@ -197,7 +174,75 @@ namespace FITNESSGYM.Controllers
             return View();
         }
 
-        
+
+
+
+
+
+        [Authorize]
+        public async Task<IActionResult> MyGoal()
+        {
+            var client = await _context.Client.Include(r => r.Goal).FirstAsync(m => m.IdUser == User.Identity.Name);
+
+            return View(client);
+        }
+
+
+
+        [Authorize]
+        public async Task<IActionResult> MyStatGraph()  //Faire tableau de préférence ?
+        {
+            var client = await _context.Client.FirstAsync(m => m.IdUser == User.Identity.Name);
+
+            return View(client);
+        }
+
+
+
+
+
+
+
+        [Authorize]
+        public IActionResult MySubscription()
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult MyReservations()   //MyReservation = my planning
+        {
+            return View();
+        }
+
+        [Authorize]
+        public IActionResult MyFavourites()
+        {
+            return View();
+        }
+
+
+        [Authorize]
+        public async Task<IActionResult> ChangePassword()
+        {
+            var client = await _context.Client.FirstAsync(m => m.IdUser == User.Identity.Name);
+
+            return View(client);
+        }
+
+
+
+
+
+
+        //ClientExist or ClientNull
+
+        private bool ClientExists(int id)
+        {
+            return (_context.Client?.Any(e => e.ID == id)).GetValueOrDefault();
+        }
+
+
         private bool IsClientNull()
         {
             var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
