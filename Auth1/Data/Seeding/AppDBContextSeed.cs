@@ -77,10 +77,11 @@ namespace FITNESSGYM.Data.Seeding
                 new TrainingProgram()
                 {
                     Id = 1,
-                    Name = "Aqua Bike",
-                    Description = "Dans l'au, au rythme de la musique, les sportifs enchaînent une chorégraphie qui vise à travailler le cardio et la tonicité musculaire. ",
+                    Name = "Zumba",
+                    Description = "De la chorégraphie, toujours et encore pour vous faire bouger sur des rythmes endiablés. De la salsa au merengue, en passant par la cumbia, le reggaeton, le kuduro… De la variété plus qu’il n’en faut au sein d’un Group training aussi efficace qu’amusant.\r\n\r\n",
                     Intensity = TrainingProgram.eIntensity.Easy,
                     Duration = 45,
+                    Photo = "/Assets/Images/TrainingProgram/ZUMBA.jpg",
                     Calories = 400
                 });
 
@@ -88,10 +89,11 @@ namespace FITNESSGYM.Data.Seeding
                 new TrainingProgram()
                 {
                     Id = 2,
-                    Name = "Aqua Gym",
-                    Description = " l’Aquagym est un sport qui se pratique dans l’eau, guidé par un coach et motivé par des musiques entraînantes. En réalisant des chorégraphies ludiques, vous améliorez votre forme physique sans vous en rendre compte et dans la bonne humeur.",
+                    Name = "Body Sculpt",
+                    Description = "Fruit de la rencontre entre le step et le Body Pump, le Body Sculpt vous aide à redessiner votre silhouette. Elastiques, haltères et bâtons sont les accessoires-clés pour parvenir à cet objectif, dans le cadre d’un Group training complet et accessible à tous.",
                     Intensity = TrainingProgram.eIntensity.Medium,
                     Duration = 45,
+                    Photo = "/Assets/Images/TrainingProgram/BODY-SCULPT.jpg",
                     Calories = 400
                 });
 
@@ -104,6 +106,7 @@ namespace FITNESSGYM.Data.Seeding
                     Description = "Fentes, squats, jumping jacks : plongez au cœur du Body Attack ! La dynamique de groupe vous donnera une énergie incroyable pour réaliser un entraînement de haute intensité. On y retrouve des mouvements athlétiques comme la course, les flexions ou les sauts, qui sont combinés à des exercices de renforcement comme les pompes. Chorégraphies et musiques donneront du rythme à vos fractionnés, pour une endurance décuplée..",
                     Intensity = TrainingProgram.eIntensity.Extreme,
                     Duration = 45,
+                    Photo = "/Assets/Images/TrainingProgram/BODY-ATTACK.jpg",
                     Calories = 750
                 });
 
@@ -115,6 +118,7 @@ namespace FITNESSGYM.Data.Seeding
                     Description = "Bienvenue au  Body Pump ! Ce Group training LesMills tonifie et renforce le corps tout entier en permettant à vos muscles de se sculpter sans prendre de volume. Les mouvements sont simples et le nombre de répétitions est élevé : le secret des muscles fins et athlétiques.",
                     Intensity = TrainingProgram.eIntensity.Hard,
                     Duration = 45,
+                    Photo = "/Assets/Images/TrainingProgram/BODY-PUMP.jpg",
                     Calories = 500
                 });
 
@@ -122,100 +126,75 @@ namespace FITNESSGYM.Data.Seeding
                 new TrainingProgram()
                 {
                     Id = 5,
-                    Name = "Body Sculpt",
-                    Description = "Fruit de la rencontre entre le step et le Body Pump, le Body Sculpt vous aide à redessiner votre silhouette. Elastiques, haltères et bâtons sont les accessoires-clés pour parvenir à cet objectif, dans le cadre d’un Group training complet et accessible à tous. Après un court échauffement, vous alternez toutes les 5 minutes entre exercices cardio et renforcement musculaire, avant de travailler les abdos et de vous étirer.",
+                    Name = "CAF",
+                    Description = "Cours traditionnel de cuisses abdos fessiers permettant de renforcer ses muscles afin de consolider les articulations et de limiter les douleurs dorsales.",
                     Intensity = TrainingProgram.eIntensity.Hard,
-                    Duration = 45,
-                    Calories = 500
+                    Duration = 30,
+                    Photo = "/Assets/Images/TrainingProgram/CAF.jpg",
+                    Calories = 300
                 });
 
             modelBuilder.Entity<TrainingProgram>().HasData(
                 new TrainingProgram()
                 {
                     Id = 6,
-                    Name = "Cuisses Abdos Fessiers",
-                    Description = "Cours traditionnel de cuisses abdos fessiers permettant de renforcer ses muscles afin de consolider les articulations et de limiter les douleurs dorsales.",
-                    Intensity = TrainingProgram.eIntensity.Hard,
-                    Duration = 30,
-                    Calories = 300
-                });
-
-            modelBuilder.Entity<TrainingProgram>().HasData(
-                new TrainingProgram()
-                {
-                    Id = 7,
                     Name = "Hiit",
                     Description = "Le Hiit ou High Intensity Interval Training est un type d'entrainement bien connu pour son efficacité. C'est un cours où vous travaillerez principalement vos capacités cardio-vasculaires en association avec des mouvements de musculation. Le HIIT est un cours full body intense et complet qui permet aussi bien de travailler le renforcement musculaire que l'endurance, tout en se défoulant.",
                     Intensity = TrainingProgram.eIntensity.Extreme,
                     Duration = 30,
+                    Photo = "/Assets/Images/TrainingProgram/HIIT.jpg",
                     Calories = 700
                 });
 
             modelBuilder.Entity<TrainingProgram>().HasData(
                 new TrainingProgram()
                 {
-                    Id = 8,
+                    Id = 7,
                     Name = "Pilates",
                     Description = "Prendre conscience de son corps en le musclant, c’est ce que propose le Pilates. Le pilate s’inspire de la danse, de la gymnastique et du yoga. Toute la séance est rythmée par des musiques zen et relaxantes. Tour à tour, vous alternez entre exercices d’équilibre afin de muscler la ceinture abdominale et exercices d’assouplissement, debout ou au sol, afin d’étirer les tendons et les muscles.",
                     Intensity = TrainingProgram.eIntensity.Medium,
                     Duration = 45,
+                    Photo = "/Assets/Images/TrainingProgram/PILATES.jpg",
                     Calories = 300
                 });
 
             modelBuilder.Entity<TrainingProgram>().HasData(
                 new TrainingProgram()
                 {
-                    Id = 9,
+                    Id = 8,
                     Name = "Step",
                     Description = "Initiez-vous à l’art du Step en enchaînant des chorégraphies sur et autour d’une marche à hauteur réglable, sur fond de musique rythmée. Montez, descendez, tournez : de la coordination, vous en aurez besoin à coups sûr ! Vous brûlerez aussi beaucoup de calories, quasiment sans vous en rendre compte tellement vous serez concentré sur vos mouvements !",
                     Intensity = TrainingProgram.eIntensity.Easy,
                     Duration = 45,
+                    Photo = "/Assets/Images/TrainingProgram/STEP.jpg",
                     Calories = 550
                 });
+
+            modelBuilder.Entity<TrainingProgram>().HasData(
+                new TrainingProgram()
+                {
+                    Id = 9,
+                    Name = "Stretch",
+                    Description = "Ce cours est un mix entre le Yoga et le Pilates. Il permet, grâce à des étirements, de travailler sa posture, en particulier celle du dos, en étirant la colonne vertébrale et en évitant le tassement des vertèbres. Les exercices effectués pendant la séance aident à augmenter la souplesse générale du corps en assouplissant et en renforçant l'élasticité des tendons et des muscles. Cela permet également de retrouver une silhouette affinée et plus harmonieuse.",
+                    Intensity = TrainingProgram.eIntensity.Easy,
+                    Duration = 60,
+                    Photo = "/Assets/Images/TrainingProgram/STRETCH.jpg",
+                    Calories = 500
+                });
+
 
             modelBuilder.Entity<TrainingProgram>().HasData(
                 new TrainingProgram()
                 {
                     Id = 10,
-                    Name = "Stretching",
-                    Description = "Ce cours est un mix entre le Yoga et le Pilates. Il permet, grâce à des étirements, de travailler sa posture, en particulier celle du dos, en étirant la colonne vertébrale et en évitant le tassement des vertèbres. Les exercices effectués pendant la séance aident à augmenter la souplesse générale du corps en assouplissant et en renforçant l'élasticité des tendons et des muscles. Cela permet également de retrouver une silhouette affinée et plus harmonieuse.",
-                    Intensity = TrainingProgram.eIntensity.Easy,
-                    Duration = 60,
-                    Calories = 500
-                });
-
-            modelBuilder.Entity<TrainingProgram>().HasData(
-                new TrainingProgram()
-                {
-                    Id = 11,
-                    Name = "RPM",
-                    Description = "Son nom signifie « Round Per minute », soit tour à la minute en français.  Entraîné par une musique électrisante, vous pédalez et donnez le meilleur de vous-même pour atteindre votre cible. Ici, l’objectif est de vous entraîner comme à l’extérieur mais de façon plus intensive.",
-                    Intensity = TrainingProgram.eIntensity.Extreme,
-                    Duration = 45,
-                    Calories = 600
-                });
-
-            modelBuilder.Entity<TrainingProgram>().HasData(
-                new TrainingProgram()
-                {
-                    Id = 12,
                     Name = "Yoga",
                     Description = "Entre dynamisme et calme, ce cours permet de gagner en force et en souplesse tout en respirant. Allez un peu plus loin chaque jour tout en respectant votre corps, en laissant frustration et égo de côté. Ressentez les postures du flow plutôt que d'essayer de dépasser vos limites. En apprenant à écouter son corps, on se connecte plus à son mental, pour plus de maîtrise de soi.",
                     Intensity = TrainingProgram.eIntensity.Medium,
                     Duration = 60,
+                    Photo = "/Assets/Images/TrainingProgram/YOGA.jpg",
                     Calories = 400
                 });
 
-            modelBuilder.Entity<TrainingProgram>().HasData(
-                new TrainingProgram()
-                {
-                    Id = 13,
-                    Name = "Zumba",
-                    Description = "De la chorégraphie, toujours et encore pour vous faire bouger sur des rythmes endiablés. De la salsa au merengue, en passant par la cumbia, le reggaeton, le kuduro… De la variété plus qu’il n’en faut au sein d’un Group training aussi efficace qu’amusant.",
-                    Intensity = TrainingProgram.eIntensity.Easy,
-                    Duration = 45,
-                    Calories = 550
-                });
 
 
 
@@ -550,7 +529,7 @@ namespace FITNESSGYM.Data.Seeding
 
 
             //Session
-
+            
             modelBuilder.Entity<Session>().HasData(
                 new Session()
                 {
@@ -616,6 +595,28 @@ namespace FITNESSGYM.Data.Seeding
                     IdLocation = 3,
                 });
 
+            Random rand = new Random(100000);
+
+            for (int i = 1; i < 11; i++)
+            {
+                for (int j = 6; j < 15; j++)
+                {
+                    modelBuilder.Entity<Session>().HasData(
+                    new Session()
+                    {
+                        Id = j+15*i,
+                        SessionDate = DateTime.Now.AddDays(rand.Next(1, 5)),
+                        SessionHour = DateTime.Now.AddMinutes(rand.Next(-40, 10000)),
+                        MaxParticipants = rand.Next(5, 20),
+                        FormulaRank = rand.Next(1, 4),
+                        IdTrainingProgram = i,
+                        IdCoach = rand.Next(1, 6),
+                        IdLocation = rand.Next(1, 10),
+                    });
+                }
+            }
+            
+
 
             //Client
 
@@ -625,10 +626,10 @@ namespace FITNESSGYM.Data.Seeding
                     ID = 1,
                     FirstName = "David",
                     LastName = "Moniz",
-                    Sex = Client.eSex.Women,
+                    Sex = Client.eSex.Men,
                     Height = 170,
                     Weight = 75,
-                    //Birthdate = 28.01.1990,
+                    Birthdate = new DateTime(1996, 5, 2),
                     Phonenumber = 0620285591,
                     Adresse = "Rue du Chateau, 95110 Paris",
                     IdUser = "david0moniz@hotmail.com",
@@ -647,9 +648,9 @@ namespace FITNESSGYM.Data.Seeding
                     Sex = Client.eSex.Men,
                     Height = 170,
                     Weight = 85,
-                    //Birthdate = 28.01.1990,
+                    Birthdate = new DateTime(1996, 10, 4),
                     Phonenumber = 0633504482,
-                    Adresse = "Rue du Chateau, 95110 Paris",
+                    Adresse = "Boulevard Central, 95110 Paris",
                     IdUser = "Richy@gmail.com",
                     Diseases = "diabetes",
                     Hobbies = "Sport",
@@ -659,7 +660,6 @@ namespace FITNESSGYM.Data.Seeding
 
 
             //Subscription
-
             modelBuilder.Entity<Subscription>().HasData(
                 new Subscription()
                 {
@@ -720,6 +720,7 @@ namespace FITNESSGYM.Data.Seeding
                     IdClient = 1
                 });
 
+            
 
             //Goal
 

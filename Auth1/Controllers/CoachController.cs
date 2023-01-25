@@ -16,8 +16,6 @@ namespace FITNESSGYM.Controllers
         private readonly IHostingEnvironment environment;
 
 
-     
-    
         public CoachController(FITNESSGYMDBContext _context, IHostingEnvironment environment)
         {   this._context = _context;
             this.environment = environment;
@@ -118,7 +116,7 @@ namespace FITNESSGYM.Controllers
                 {   
                     string fileName = string.Empty;
                     if (coach.File != null)
-                        fileName = UploadFile(coach.File, coach.Photo);
+                    fileName = UploadFile(coach.File, coach.Photo);
                     coach.Photo = !string.IsNullOrEmpty(fileName) ? fileName : coach.Photo;
                     coach.Photo = fileName != null ? "Assets\\Images\\Coach\\" + fileName : string.Empty;
                     _context.Update(coach);
