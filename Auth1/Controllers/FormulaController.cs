@@ -16,8 +16,9 @@ namespace FITNESSGYM.Controllers
                 _context = context;
             }
 
-            // GET: Formula
-            public async Task<IActionResult> Index()
+        // GET: Formula
+        
+        public async Task<IActionResult> Index()
             {
                 return _context.Formula != null ?
                             View(await _context.Formula.ToListAsync()) :
@@ -69,17 +70,31 @@ namespace FITNESSGYM.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> CreateSupscription([Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Formula formula)
+        public async Task<IActionResult> CreateSupscription(int id,[Bind("ID,Name,Description,FormulaRank,Price,Discount,Commitement")] Formula formula)
         {
+            if (id == null)
+            {
+                return NotFound();
+            }
             IsClientNull();
-            if (_context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name).Subscriptions.Any())
+            Client client = _context.Client.Include(s => s.Subscriptions).FirstOrDefault(m => m.IdUser == User.Identity.Name);
+
+            if (client.Subscriptions.Count == 0)
             {
                 Subscription newsubscription = new Subscription();
+                newsubscription.Price = newsubscription.Formula.Price*newsubscription.Discount/100;
+                newsubscription.Entrydate = DateTime.Now; 
+                newsubscription.Sortdate  = DateTime.Now.AddYears(1);
+                newsubscription.IdClient = client.ID;
+                newsubscription.IdFormula = id;
+
                 _context.Add(newsubscription);
                 await _context.SaveChangesAsync();
+                TempData["Message"] = "You have subscribed to Formula "+ newsubscription.Formula.Name;
                 return RedirectToAction(nameof(Index));
             }
-            return View(formula);
+            TempData["Message"] = "You have already subscribed to the Formula. ";
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Formula/Edit/5
