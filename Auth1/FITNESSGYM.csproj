@@ -21,7 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Migrations\FITNESSGYMDB\" />
+    <Content Update="wwwroot\Assets\Images\TrainingProgram\STEP.jpg">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

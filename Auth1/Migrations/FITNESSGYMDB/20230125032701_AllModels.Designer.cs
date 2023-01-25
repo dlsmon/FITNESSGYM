@@ -4,6 +4,7 @@ using FITNESSGYM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FITNESSGYM.Migrations.FITNESSGYMDB
 {
     [DbContext(typeof(FITNESSGYMDBContext))]
-    partial class FITNESSGYMDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230125032701_AllModels")]
+    partial class AllModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
