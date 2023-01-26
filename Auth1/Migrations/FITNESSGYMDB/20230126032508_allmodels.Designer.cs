@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FITNESSGYM.Migrations.FITNESSGYMDB
 {
     [DbContext(typeof(FITNESSGYMDBContext))]
-    [Migration("20230125111758_allmodels")]
+    [Migration("20230126032508_allmodels")]
     partial class allmodels
     {
         /// <inheritdoc />
@@ -456,8 +456,14 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     b.Property<int>("Frequency")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("GoalDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("IdClient")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("Weight")
                         .HasColumnType("int");
@@ -879,8 +885,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 1,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5756),
-                            SessionHour = new DateTime(2023, 1, 25, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5821)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1236),
+                            SessionHour = new DateTime(2023, 1, 26, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1297)
                         },
                         new
                         {
@@ -890,8 +896,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 2,
                             MaxParticipants = 20,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5834),
-                            SessionHour = new DateTime(2023, 1, 25, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5837)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1314),
+                            SessionHour = new DateTime(2023, 1, 26, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1315)
                         },
                         new
                         {
@@ -901,8 +907,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 3,
                             MaxParticipants = 30,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5847),
-                            SessionHour = new DateTime(2023, 1, 25, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5849)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1326),
+                            SessionHour = new DateTime(2023, 1, 26, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1328)
                         },
                         new
                         {
@@ -912,8 +918,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 4,
                             MaxParticipants = 22,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5865),
-                            SessionHour = new DateTime(2023, 1, 25, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5867)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1339),
+                            SessionHour = new DateTime(2023, 1, 26, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1340)
                         },
                         new
                         {
@@ -932,8 +938,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 4,
                             IdTrainingProgram = 1,
                             MaxParticipants = 13,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5931),
-                            SessionHour = new DateTime(2023, 1, 30, 5, 15, 58, 505, DateTimeKind.Local).AddTicks(5936)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1403),
+                            SessionHour = new DateTime(2023, 1, 30, 21, 23, 7, 907, DateTimeKind.Local).AddTicks(1412)
                         },
                         new
                         {
@@ -943,8 +949,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 1,
                             MaxParticipants = 14,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5947),
-                            SessionHour = new DateTime(2023, 1, 31, 15, 16, 58, 505, DateTimeKind.Local).AddTicks(5949)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1425),
+                            SessionHour = new DateTime(2023, 2, 1, 7, 24, 7, 907, DateTimeKind.Local).AddTicks(1427)
                         },
                         new
                         {
@@ -954,8 +960,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 1,
                             MaxParticipants = 7,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5957),
-                            SessionHour = new DateTime(2023, 2, 1, 10, 21, 58, 505, DateTimeKind.Local).AddTicks(5959)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1437),
+                            SessionHour = new DateTime(2023, 2, 2, 2, 29, 7, 907, DateTimeKind.Local).AddTicks(1439)
                         },
                         new
                         {
@@ -965,8 +971,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 6,
                             IdTrainingProgram = 1,
                             MaxParticipants = 18,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5968),
-                            SessionHour = new DateTime(2023, 1, 31, 1, 57, 58, 505, DateTimeKind.Local).AddTicks(5969)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1449),
+                            SessionHour = new DateTime(2023, 1, 31, 18, 5, 7, 907, DateTimeKind.Local).AddTicks(1451)
                         },
                         new
                         {
@@ -976,8 +982,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 1,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5979),
-                            SessionHour = new DateTime(2023, 1, 31, 6, 3, 58, 505, DateTimeKind.Local).AddTicks(5981)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1461),
+                            SessionHour = new DateTime(2023, 1, 31, 22, 11, 7, 907, DateTimeKind.Local).AddTicks(1463)
                         },
                         new
                         {
@@ -987,8 +993,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 6,
                             IdTrainingProgram = 1,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5989),
-                            SessionHour = new DateTime(2023, 1, 26, 10, 17, 58, 505, DateTimeKind.Local).AddTicks(5991)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1473),
+                            SessionHour = new DateTime(2023, 1, 27, 2, 25, 7, 907, DateTimeKind.Local).AddTicks(1475)
                         },
                         new
                         {
@@ -998,8 +1004,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 1,
                             MaxParticipants = 13,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6000),
-                            SessionHour = new DateTime(2023, 1, 27, 7, 35, 58, 505, DateTimeKind.Local).AddTicks(6001)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1485),
+                            SessionHour = new DateTime(2023, 1, 27, 23, 43, 7, 907, DateTimeKind.Local).AddTicks(1487)
                         },
                         new
                         {
@@ -1009,8 +1015,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 1,
                             MaxParticipants = 12,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6009),
-                            SessionHour = new DateTime(2023, 1, 30, 4, 19, 58, 505, DateTimeKind.Local).AddTicks(6011)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1496),
+                            SessionHour = new DateTime(2023, 1, 30, 20, 27, 7, 907, DateTimeKind.Local).AddTicks(1498)
                         },
                         new
                         {
@@ -1020,8 +1026,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 1,
                             MaxParticipants = 10,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6020),
-                            SessionHour = new DateTime(2023, 1, 26, 14, 7, 58, 505, DateTimeKind.Local).AddTicks(6021)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1507),
+                            SessionHour = new DateTime(2023, 1, 27, 6, 15, 7, 907, DateTimeKind.Local).AddTicks(1509)
                         },
                         new
                         {
@@ -1031,8 +1037,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 2,
                             MaxParticipants = 7,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6030),
-                            SessionHour = new DateTime(2023, 1, 30, 15, 25, 58, 505, DateTimeKind.Local).AddTicks(6032)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1519),
+                            SessionHour = new DateTime(2023, 1, 31, 7, 33, 7, 907, DateTimeKind.Local).AddTicks(1520)
                         },
                         new
                         {
@@ -1042,8 +1048,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 2,
                             MaxParticipants = 5,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6041),
-                            SessionHour = new DateTime(2023, 1, 26, 3, 2, 58, 505, DateTimeKind.Local).AddTicks(6042)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1530),
+                            SessionHour = new DateTime(2023, 1, 26, 19, 10, 7, 907, DateTimeKind.Local).AddTicks(1531)
                         },
                         new
                         {
@@ -1053,8 +1059,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 5,
                             IdTrainingProgram = 2,
                             MaxParticipants = 12,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6051),
-                            SessionHour = new DateTime(2023, 1, 30, 6, 41, 58, 505, DateTimeKind.Local).AddTicks(6052)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1541),
+                            SessionHour = new DateTime(2023, 1, 30, 22, 49, 7, 907, DateTimeKind.Local).AddTicks(1543)
                         },
                         new
                         {
@@ -1064,8 +1070,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 2,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6061),
-                            SessionHour = new DateTime(2023, 1, 28, 15, 0, 58, 505, DateTimeKind.Local).AddTicks(6063)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1553),
+                            SessionHour = new DateTime(2023, 1, 29, 7, 8, 7, 907, DateTimeKind.Local).AddTicks(1555)
                         },
                         new
                         {
@@ -1075,8 +1081,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 2,
                             MaxParticipants = 10,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6071),
-                            SessionHour = new DateTime(2023, 1, 28, 20, 25, 58, 505, DateTimeKind.Local).AddTicks(6073)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1564),
+                            SessionHour = new DateTime(2023, 1, 29, 12, 33, 7, 907, DateTimeKind.Local).AddTicks(1566)
                         },
                         new
                         {
@@ -1086,8 +1092,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 2,
                             MaxParticipants = 16,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6081),
-                            SessionHour = new DateTime(2023, 1, 26, 20, 36, 58, 505, DateTimeKind.Local).AddTicks(6083)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1575),
+                            SessionHour = new DateTime(2023, 1, 27, 12, 44, 7, 907, DateTimeKind.Local).AddTicks(1577)
                         },
                         new
                         {
@@ -1097,8 +1103,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 2,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6092),
-                            SessionHour = new DateTime(2023, 1, 25, 14, 2, 58, 505, DateTimeKind.Local).AddTicks(6094)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1587),
+                            SessionHour = new DateTime(2023, 1, 26, 6, 10, 7, 907, DateTimeKind.Local).AddTicks(1588)
                         },
                         new
                         {
@@ -1108,8 +1114,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 2,
                             MaxParticipants = 8,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6102),
-                            SessionHour = new DateTime(2023, 1, 26, 17, 58, 58, 505, DateTimeKind.Local).AddTicks(6104)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1617),
+                            SessionHour = new DateTime(2023, 1, 27, 10, 6, 7, 907, DateTimeKind.Local).AddTicks(1619)
                         },
                         new
                         {
@@ -1119,8 +1125,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 2,
                             MaxParticipants = 19,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6112),
-                            SessionHour = new DateTime(2023, 1, 31, 20, 30, 58, 505, DateTimeKind.Local).AddTicks(6114)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1630),
+                            SessionHour = new DateTime(2023, 2, 1, 12, 38, 7, 907, DateTimeKind.Local).AddTicks(1632)
                         },
                         new
                         {
@@ -1130,8 +1136,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 3,
                             MaxParticipants = 5,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6127),
-                            SessionHour = new DateTime(2023, 1, 28, 4, 54, 58, 505, DateTimeKind.Local).AddTicks(6129)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1642),
+                            SessionHour = new DateTime(2023, 1, 28, 21, 2, 7, 907, DateTimeKind.Local).AddTicks(1644)
                         },
                         new
                         {
@@ -1141,8 +1147,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 3,
                             IdTrainingProgram = 3,
                             MaxParticipants = 6,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6138),
-                            SessionHour = new DateTime(2023, 1, 29, 3, 32, 58, 505, DateTimeKind.Local).AddTicks(6140)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1653),
+                            SessionHour = new DateTime(2023, 1, 29, 19, 40, 7, 907, DateTimeKind.Local).AddTicks(1655)
                         },
                         new
                         {
@@ -1152,8 +1158,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 3,
                             MaxParticipants = 16,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6148),
-                            SessionHour = new DateTime(2023, 1, 30, 9, 18, 58, 505, DateTimeKind.Local).AddTicks(6150)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1664),
+                            SessionHour = new DateTime(2023, 1, 31, 1, 26, 7, 907, DateTimeKind.Local).AddTicks(1666)
                         },
                         new
                         {
@@ -1163,8 +1169,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 5,
                             IdTrainingProgram = 3,
                             MaxParticipants = 6,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6159),
-                            SessionHour = new DateTime(2023, 1, 31, 3, 36, 58, 505, DateTimeKind.Local).AddTicks(6161)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1676),
+                            SessionHour = new DateTime(2023, 1, 31, 19, 44, 7, 907, DateTimeKind.Local).AddTicks(1677)
                         },
                         new
                         {
@@ -1174,8 +1180,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 3,
                             MaxParticipants = 18,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6169),
-                            SessionHour = new DateTime(2023, 1, 31, 4, 49, 58, 505, DateTimeKind.Local).AddTicks(6171)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1687),
+                            SessionHour = new DateTime(2023, 1, 31, 20, 57, 7, 907, DateTimeKind.Local).AddTicks(1689)
                         },
                         new
                         {
@@ -1185,8 +1191,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 5,
                             IdTrainingProgram = 3,
                             MaxParticipants = 17,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6179),
-                            SessionHour = new DateTime(2023, 1, 31, 10, 24, 58, 505, DateTimeKind.Local).AddTicks(6181)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1699),
+                            SessionHour = new DateTime(2023, 2, 1, 2, 32, 7, 907, DateTimeKind.Local).AddTicks(1701)
                         },
                         new
                         {
@@ -1196,8 +1202,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 3,
                             MaxParticipants = 7,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6189),
-                            SessionHour = new DateTime(2023, 1, 25, 13, 34, 58, 505, DateTimeKind.Local).AddTicks(6191)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1710),
+                            SessionHour = new DateTime(2023, 1, 26, 5, 42, 7, 907, DateTimeKind.Local).AddTicks(1711)
                         },
                         new
                         {
@@ -1207,8 +1213,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 3,
                             MaxParticipants = 9,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6199),
-                            SessionHour = new DateTime(2023, 1, 30, 11, 22, 58, 505, DateTimeKind.Local).AddTicks(6201)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1721),
+                            SessionHour = new DateTime(2023, 1, 31, 3, 30, 7, 907, DateTimeKind.Local).AddTicks(1722)
                         },
                         new
                         {
@@ -1218,8 +1224,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 6,
                             IdTrainingProgram = 3,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6208),
-                            SessionHour = new DateTime(2023, 1, 31, 6, 21, 58, 505, DateTimeKind.Local).AddTicks(6210)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1732),
+                            SessionHour = new DateTime(2023, 1, 31, 22, 29, 7, 907, DateTimeKind.Local).AddTicks(1734)
                         },
                         new
                         {
@@ -1229,8 +1235,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 4,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6218),
-                            SessionHour = new DateTime(2023, 1, 30, 22, 11, 58, 505, DateTimeKind.Local).AddTicks(6220)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1744),
+                            SessionHour = new DateTime(2023, 1, 31, 14, 19, 7, 907, DateTimeKind.Local).AddTicks(1746)
                         },
                         new
                         {
@@ -1240,8 +1246,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 4,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6229),
-                            SessionHour = new DateTime(2023, 1, 25, 15, 19, 58, 505, DateTimeKind.Local).AddTicks(6230)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1756),
+                            SessionHour = new DateTime(2023, 1, 26, 7, 27, 7, 907, DateTimeKind.Local).AddTicks(1758)
                         },
                         new
                         {
@@ -1251,8 +1257,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 4,
                             MaxParticipants = 14,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6239),
-                            SessionHour = new DateTime(2023, 1, 29, 16, 57, 58, 505, DateTimeKind.Local).AddTicks(6241)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1768),
+                            SessionHour = new DateTime(2023, 1, 30, 9, 5, 7, 907, DateTimeKind.Local).AddTicks(1770)
                         },
                         new
                         {
@@ -1262,8 +1268,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 4,
                             MaxParticipants = 17,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6249),
-                            SessionHour = new DateTime(2023, 1, 27, 3, 25, 58, 505, DateTimeKind.Local).AddTicks(6250)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1779),
+                            SessionHour = new DateTime(2023, 1, 27, 19, 33, 7, 907, DateTimeKind.Local).AddTicks(1781)
                         },
                         new
                         {
@@ -1273,8 +1279,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 4,
                             MaxParticipants = 19,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6259),
-                            SessionHour = new DateTime(2023, 1, 29, 6, 16, 58, 505, DateTimeKind.Local).AddTicks(6261)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1790),
+                            SessionHour = new DateTime(2023, 1, 29, 22, 24, 7, 907, DateTimeKind.Local).AddTicks(1792)
                         },
                         new
                         {
@@ -1284,8 +1290,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 3,
                             IdTrainingProgram = 4,
                             MaxParticipants = 17,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6269),
-                            SessionHour = new DateTime(2023, 1, 31, 7, 6, 58, 505, DateTimeKind.Local).AddTicks(6271)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1801),
+                            SessionHour = new DateTime(2023, 1, 31, 23, 14, 7, 907, DateTimeKind.Local).AddTicks(1802)
                         },
                         new
                         {
@@ -1295,8 +1301,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 4,
                             MaxParticipants = 8,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6279),
-                            SessionHour = new DateTime(2023, 1, 27, 12, 18, 58, 505, DateTimeKind.Local).AddTicks(6281)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1812),
+                            SessionHour = new DateTime(2023, 1, 28, 4, 26, 7, 907, DateTimeKind.Local).AddTicks(1814)
                         },
                         new
                         {
@@ -1306,8 +1312,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 3,
                             IdTrainingProgram = 4,
                             MaxParticipants = 5,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6289),
-                            SessionHour = new DateTime(2023, 1, 31, 2, 38, 58, 505, DateTimeKind.Local).AddTicks(6291)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1823),
+                            SessionHour = new DateTime(2023, 1, 31, 18, 46, 7, 907, DateTimeKind.Local).AddTicks(1825)
                         },
                         new
                         {
@@ -1317,8 +1323,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 4,
                             MaxParticipants = 17,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6299),
-                            SessionHour = new DateTime(2023, 1, 30, 6, 29, 58, 505, DateTimeKind.Local).AddTicks(6301)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1835),
+                            SessionHour = new DateTime(2023, 1, 30, 22, 37, 7, 907, DateTimeKind.Local).AddTicks(1836)
                         },
                         new
                         {
@@ -1328,8 +1334,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 3,
                             IdTrainingProgram = 5,
                             MaxParticipants = 19,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6309),
-                            SessionHour = new DateTime(2023, 1, 29, 10, 1, 58, 505, DateTimeKind.Local).AddTicks(6311)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1846),
+                            SessionHour = new DateTime(2023, 1, 30, 2, 9, 7, 907, DateTimeKind.Local).AddTicks(1848)
                         },
                         new
                         {
@@ -1339,8 +1345,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 5,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6319),
-                            SessionHour = new DateTime(2023, 1, 26, 10, 52, 58, 505, DateTimeKind.Local).AddTicks(6321)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1858),
+                            SessionHour = new DateTime(2023, 1, 27, 3, 0, 7, 907, DateTimeKind.Local).AddTicks(1859)
                         },
                         new
                         {
@@ -1350,8 +1356,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 5,
                             MaxParticipants = 13,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6329),
-                            SessionHour = new DateTime(2023, 1, 26, 9, 6, 58, 505, DateTimeKind.Local).AddTicks(6331)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1891),
+                            SessionHour = new DateTime(2023, 1, 27, 1, 14, 7, 907, DateTimeKind.Local).AddTicks(1893)
                         },
                         new
                         {
@@ -1361,8 +1367,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 5,
                             MaxParticipants = 17,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6339),
-                            SessionHour = new DateTime(2023, 1, 30, 23, 27, 58, 505, DateTimeKind.Local).AddTicks(6341)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1904),
+                            SessionHour = new DateTime(2023, 1, 31, 15, 35, 7, 907, DateTimeKind.Local).AddTicks(1906)
                         },
                         new
                         {
@@ -1372,8 +1378,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 5,
                             MaxParticipants = 18,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6354),
-                            SessionHour = new DateTime(2023, 1, 25, 23, 53, 58, 505, DateTimeKind.Local).AddTicks(6356)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1916),
+                            SessionHour = new DateTime(2023, 1, 26, 16, 1, 7, 907, DateTimeKind.Local).AddTicks(1918)
                         },
                         new
                         {
@@ -1383,8 +1389,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 5,
                             IdTrainingProgram = 5,
                             MaxParticipants = 19,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6365),
-                            SessionHour = new DateTime(2023, 1, 31, 16, 32, 58, 505, DateTimeKind.Local).AddTicks(6367)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1927),
+                            SessionHour = new DateTime(2023, 2, 1, 8, 40, 7, 907, DateTimeKind.Local).AddTicks(1929)
                         },
                         new
                         {
@@ -1394,8 +1400,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 3,
                             IdTrainingProgram = 5,
                             MaxParticipants = 6,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6375),
-                            SessionHour = new DateTime(2023, 1, 26, 8, 35, 58, 505, DateTimeKind.Local).AddTicks(6377)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1939),
+                            SessionHour = new DateTime(2023, 1, 27, 0, 43, 7, 907, DateTimeKind.Local).AddTicks(1941)
                         },
                         new
                         {
@@ -1405,8 +1411,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 5,
                             IdTrainingProgram = 5,
                             MaxParticipants = 6,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6385),
-                            SessionHour = new DateTime(2023, 1, 28, 12, 33, 58, 505, DateTimeKind.Local).AddTicks(6387)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1951),
+                            SessionHour = new DateTime(2023, 1, 29, 4, 41, 7, 907, DateTimeKind.Local).AddTicks(1953)
                         },
                         new
                         {
@@ -1416,8 +1422,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 5,
                             MaxParticipants = 8,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6396),
-                            SessionHour = new DateTime(2023, 1, 31, 0, 46, 58, 505, DateTimeKind.Local).AddTicks(6397)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1962),
+                            SessionHour = new DateTime(2023, 1, 31, 16, 54, 7, 907, DateTimeKind.Local).AddTicks(1964)
                         },
                         new
                         {
@@ -1427,8 +1433,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 6,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6405),
-                            SessionHour = new DateTime(2023, 1, 31, 12, 33, 58, 505, DateTimeKind.Local).AddTicks(6407)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1973),
+                            SessionHour = new DateTime(2023, 2, 1, 4, 41, 7, 907, DateTimeKind.Local).AddTicks(1974)
                         },
                         new
                         {
@@ -1438,8 +1444,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 6,
                             MaxParticipants = 9,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6415),
-                            SessionHour = new DateTime(2023, 1, 27, 16, 2, 58, 505, DateTimeKind.Local).AddTicks(6417)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1984),
+                            SessionHour = new DateTime(2023, 1, 28, 8, 10, 7, 907, DateTimeKind.Local).AddTicks(1985)
                         },
                         new
                         {
@@ -1449,8 +1455,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 4,
                             IdTrainingProgram = 6,
                             MaxParticipants = 13,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6425),
-                            SessionHour = new DateTime(2023, 1, 26, 15, 18, 58, 505, DateTimeKind.Local).AddTicks(6427)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(1996),
+                            SessionHour = new DateTime(2023, 1, 27, 7, 26, 7, 907, DateTimeKind.Local).AddTicks(1997)
                         },
                         new
                         {
@@ -1460,8 +1466,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 6,
                             MaxParticipants = 14,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6435),
-                            SessionHour = new DateTime(2023, 1, 25, 19, 4, 58, 505, DateTimeKind.Local).AddTicks(6437)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2008),
+                            SessionHour = new DateTime(2023, 1, 26, 11, 12, 7, 907, DateTimeKind.Local).AddTicks(2009)
                         },
                         new
                         {
@@ -1471,8 +1477,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 6,
                             MaxParticipants = 6,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6445),
-                            SessionHour = new DateTime(2023, 1, 30, 9, 37, 58, 505, DateTimeKind.Local).AddTicks(6447)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2020),
+                            SessionHour = new DateTime(2023, 1, 31, 1, 45, 7, 907, DateTimeKind.Local).AddTicks(2021)
                         },
                         new
                         {
@@ -1482,8 +1488,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 6,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6455),
-                            SessionHour = new DateTime(2023, 2, 1, 5, 11, 58, 505, DateTimeKind.Local).AddTicks(6456)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2030),
+                            SessionHour = new DateTime(2023, 2, 1, 21, 19, 7, 907, DateTimeKind.Local).AddTicks(2032)
                         },
                         new
                         {
@@ -1493,8 +1499,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 6,
                             MaxParticipants = 10,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6465),
-                            SessionHour = new DateTime(2023, 1, 27, 19, 31, 58, 505, DateTimeKind.Local).AddTicks(6467)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2042),
+                            SessionHour = new DateTime(2023, 1, 28, 11, 39, 7, 907, DateTimeKind.Local).AddTicks(2044)
                         },
                         new
                         {
@@ -1504,8 +1510,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 6,
                             MaxParticipants = 18,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6503),
-                            SessionHour = new DateTime(2023, 2, 1, 10, 45, 58, 505, DateTimeKind.Local).AddTicks(6505)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2054),
+                            SessionHour = new DateTime(2023, 2, 2, 2, 53, 7, 907, DateTimeKind.Local).AddTicks(2056)
                         },
                         new
                         {
@@ -1515,8 +1521,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 4,
                             IdTrainingProgram = 6,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6513),
-                            SessionHour = new DateTime(2023, 1, 29, 0, 23, 58, 505, DateTimeKind.Local).AddTicks(6515)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2067),
+                            SessionHour = new DateTime(2023, 1, 29, 16, 31, 7, 907, DateTimeKind.Local).AddTicks(2068)
                         },
                         new
                         {
@@ -1526,8 +1532,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 7,
                             MaxParticipants = 12,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6523),
-                            SessionHour = new DateTime(2023, 1, 28, 1, 9, 58, 505, DateTimeKind.Local).AddTicks(6525)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2078),
+                            SessionHour = new DateTime(2023, 1, 28, 17, 17, 7, 907, DateTimeKind.Local).AddTicks(2080)
                         },
                         new
                         {
@@ -1537,8 +1543,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 6,
                             IdTrainingProgram = 7,
                             MaxParticipants = 8,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6533),
-                            SessionHour = new DateTime(2023, 1, 31, 23, 12, 58, 505, DateTimeKind.Local).AddTicks(6535)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2090),
+                            SessionHour = new DateTime(2023, 2, 1, 15, 20, 7, 907, DateTimeKind.Local).AddTicks(2092)
                         },
                         new
                         {
@@ -1548,8 +1554,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 7,
                             MaxParticipants = 5,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6543),
-                            SessionHour = new DateTime(2023, 1, 25, 20, 31, 58, 505, DateTimeKind.Local).AddTicks(6545)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2102),
+                            SessionHour = new DateTime(2023, 1, 26, 12, 39, 7, 907, DateTimeKind.Local).AddTicks(2103)
                         },
                         new
                         {
@@ -1559,8 +1565,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 4,
                             IdTrainingProgram = 7,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6554),
-                            SessionHour = new DateTime(2023, 1, 29, 11, 48, 58, 505, DateTimeKind.Local).AddTicks(6555)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2114),
+                            SessionHour = new DateTime(2023, 1, 30, 3, 56, 7, 907, DateTimeKind.Local).AddTicks(2116)
                         },
                         new
                         {
@@ -1570,8 +1576,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 6,
                             IdTrainingProgram = 7,
                             MaxParticipants = 10,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6563),
-                            SessionHour = new DateTime(2023, 1, 29, 21, 38, 58, 505, DateTimeKind.Local).AddTicks(6565)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2126),
+                            SessionHour = new DateTime(2023, 1, 30, 13, 46, 7, 907, DateTimeKind.Local).AddTicks(2128)
                         },
                         new
                         {
@@ -1581,8 +1587,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 7,
                             MaxParticipants = 10,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6574),
-                            SessionHour = new DateTime(2023, 1, 31, 9, 50, 58, 505, DateTimeKind.Local).AddTicks(6576)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2138),
+                            SessionHour = new DateTime(2023, 2, 1, 1, 58, 7, 907, DateTimeKind.Local).AddTicks(2140)
                         },
                         new
                         {
@@ -1592,8 +1598,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 7,
                             MaxParticipants = 9,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6590),
-                            SessionHour = new DateTime(2023, 1, 27, 9, 30, 58, 505, DateTimeKind.Local).AddTicks(6592)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2173),
+                            SessionHour = new DateTime(2023, 1, 28, 1, 38, 7, 907, DateTimeKind.Local).AddTicks(2175)
                         },
                         new
                         {
@@ -1603,8 +1609,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 3,
                             IdTrainingProgram = 7,
                             MaxParticipants = 7,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6601),
-                            SessionHour = new DateTime(2023, 1, 30, 11, 49, 58, 505, DateTimeKind.Local).AddTicks(6602)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2185),
+                            SessionHour = new DateTime(2023, 1, 31, 3, 57, 7, 907, DateTimeKind.Local).AddTicks(2187)
                         },
                         new
                         {
@@ -1614,8 +1620,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 7,
                             MaxParticipants = 10,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6610),
-                            SessionHour = new DateTime(2023, 2, 1, 10, 3, 58, 505, DateTimeKind.Local).AddTicks(6612)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2196),
+                            SessionHour = new DateTime(2023, 2, 2, 2, 11, 7, 907, DateTimeKind.Local).AddTicks(2198)
                         },
                         new
                         {
@@ -1625,8 +1631,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 4,
                             IdTrainingProgram = 8,
                             MaxParticipants = 16,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6620),
-                            SessionHour = new DateTime(2023, 1, 29, 18, 33, 58, 505, DateTimeKind.Local).AddTicks(6622)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2207),
+                            SessionHour = new DateTime(2023, 1, 30, 10, 41, 7, 907, DateTimeKind.Local).AddTicks(2209)
                         },
                         new
                         {
@@ -1636,8 +1642,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 8,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6630),
-                            SessionHour = new DateTime(2023, 1, 30, 16, 30, 58, 505, DateTimeKind.Local).AddTicks(6631)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2219),
+                            SessionHour = new DateTime(2023, 1, 31, 8, 38, 7, 907, DateTimeKind.Local).AddTicks(2221)
                         },
                         new
                         {
@@ -1647,8 +1653,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 8,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6639),
-                            SessionHour = new DateTime(2023, 1, 28, 9, 8, 58, 505, DateTimeKind.Local).AddTicks(6641)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2231),
+                            SessionHour = new DateTime(2023, 1, 29, 1, 16, 7, 907, DateTimeKind.Local).AddTicks(2232)
                         },
                         new
                         {
@@ -1658,8 +1664,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 8,
                             MaxParticipants = 13,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6649),
-                            SessionHour = new DateTime(2023, 1, 30, 3, 23, 58, 505, DateTimeKind.Local).AddTicks(6650)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2242),
+                            SessionHour = new DateTime(2023, 1, 30, 19, 31, 7, 907, DateTimeKind.Local).AddTicks(2244)
                         },
                         new
                         {
@@ -1669,8 +1675,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 5,
                             IdTrainingProgram = 8,
                             MaxParticipants = 16,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6659),
-                            SessionHour = new DateTime(2023, 1, 29, 3, 20, 58, 505, DateTimeKind.Local).AddTicks(6661)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2255),
+                            SessionHour = new DateTime(2023, 1, 29, 19, 28, 7, 907, DateTimeKind.Local).AddTicks(2256)
                         },
                         new
                         {
@@ -1680,8 +1686,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 8,
                             MaxParticipants = 19,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6669),
-                            SessionHour = new DateTime(2023, 1, 28, 17, 17, 58, 505, DateTimeKind.Local).AddTicks(6671)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2267),
+                            SessionHour = new DateTime(2023, 1, 29, 9, 25, 7, 907, DateTimeKind.Local).AddTicks(2268)
                         },
                         new
                         {
@@ -1691,8 +1697,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 3,
                             IdTrainingProgram = 8,
                             MaxParticipants = 10,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6679),
-                            SessionHour = new DateTime(2023, 2, 1, 1, 37, 58, 505, DateTimeKind.Local).AddTicks(6681)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2278),
+                            SessionHour = new DateTime(2023, 2, 1, 17, 45, 7, 907, DateTimeKind.Local).AddTicks(2280)
                         },
                         new
                         {
@@ -1702,8 +1708,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 5,
                             IdTrainingProgram = 8,
                             MaxParticipants = 17,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6689),
-                            SessionHour = new DateTime(2023, 1, 31, 20, 35, 58, 505, DateTimeKind.Local).AddTicks(6690)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2289),
+                            SessionHour = new DateTime(2023, 2, 1, 12, 43, 7, 907, DateTimeKind.Local).AddTicks(2291)
                         },
                         new
                         {
@@ -1713,8 +1719,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 8,
                             MaxParticipants = 8,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6698),
-                            SessionHour = new DateTime(2023, 1, 28, 17, 49, 58, 505, DateTimeKind.Local).AddTicks(6700)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2301),
+                            SessionHour = new DateTime(2023, 1, 29, 9, 57, 7, 907, DateTimeKind.Local).AddTicks(2302)
                         },
                         new
                         {
@@ -1724,8 +1730,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 4,
                             IdTrainingProgram = 9,
                             MaxParticipants = 10,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6708),
-                            SessionHour = new DateTime(2023, 1, 27, 5, 6, 58, 505, DateTimeKind.Local).AddTicks(6710)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2312),
+                            SessionHour = new DateTime(2023, 1, 27, 21, 14, 7, 907, DateTimeKind.Local).AddTicks(2313)
                         },
                         new
                         {
@@ -1735,8 +1741,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 4,
                             IdTrainingProgram = 9,
                             MaxParticipants = 8,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6717),
-                            SessionHour = new DateTime(2023, 1, 29, 19, 4, 58, 505, DateTimeKind.Local).AddTicks(6719)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2322),
+                            SessionHour = new DateTime(2023, 1, 30, 11, 12, 7, 907, DateTimeKind.Local).AddTicks(2324)
                         },
                         new
                         {
@@ -1746,8 +1752,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 9,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6727),
-                            SessionHour = new DateTime(2023, 1, 31, 17, 21, 58, 505, DateTimeKind.Local).AddTicks(6729)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2333),
+                            SessionHour = new DateTime(2023, 2, 1, 9, 29, 7, 907, DateTimeKind.Local).AddTicks(2335)
                         },
                         new
                         {
@@ -1757,8 +1763,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 4,
                             IdTrainingProgram = 9,
                             MaxParticipants = 5,
-                            SessionDate = new DateTime(2023, 1, 28, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6737),
-                            SessionHour = new DateTime(2023, 1, 29, 19, 35, 58, 505, DateTimeKind.Local).AddTicks(6738)
+                            SessionDate = new DateTime(2023, 1, 29, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2344),
+                            SessionHour = new DateTime(2023, 1, 30, 11, 43, 7, 907, DateTimeKind.Local).AddTicks(2346)
                         },
                         new
                         {
@@ -1768,8 +1774,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 9,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6746),
-                            SessionHour = new DateTime(2023, 2, 1, 8, 49, 58, 505, DateTimeKind.Local).AddTicks(6748)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2356),
+                            SessionHour = new DateTime(2023, 2, 2, 0, 57, 7, 907, DateTimeKind.Local).AddTicks(2358)
                         },
                         new
                         {
@@ -1779,8 +1785,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 9,
                             MaxParticipants = 5,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6756),
-                            SessionHour = new DateTime(2023, 1, 30, 3, 57, 58, 505, DateTimeKind.Local).AddTicks(6757)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2367),
+                            SessionHour = new DateTime(2023, 1, 30, 20, 5, 7, 907, DateTimeKind.Local).AddTicks(2369)
                         },
                         new
                         {
@@ -1790,8 +1796,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 9,
                             MaxParticipants = 18,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6766),
-                            SessionHour = new DateTime(2023, 1, 26, 7, 13, 58, 505, DateTimeKind.Local).AddTicks(6767)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2378),
+                            SessionHour = new DateTime(2023, 1, 26, 23, 21, 7, 907, DateTimeKind.Local).AddTicks(2380)
                         },
                         new
                         {
@@ -1801,8 +1807,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 9,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6776),
-                            SessionHour = new DateTime(2023, 1, 27, 20, 6, 58, 505, DateTimeKind.Local).AddTicks(6777)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2390),
+                            SessionHour = new DateTime(2023, 1, 28, 12, 14, 7, 907, DateTimeKind.Local).AddTicks(2391)
                         },
                         new
                         {
@@ -1812,8 +1818,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 9,
                             MaxParticipants = 7,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6785),
-                            SessionHour = new DateTime(2023, 1, 30, 11, 23, 58, 505, DateTimeKind.Local).AddTicks(6786)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2402),
+                            SessionHour = new DateTime(2023, 1, 31, 3, 31, 7, 907, DateTimeKind.Local).AddTicks(2403)
                         },
                         new
                         {
@@ -1823,8 +1829,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 1,
                             IdTrainingProgram = 10,
                             MaxParticipants = 16,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6795),
-                            SessionHour = new DateTime(2023, 1, 25, 23, 7, 58, 505, DateTimeKind.Local).AddTicks(6796)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2452),
+                            SessionHour = new DateTime(2023, 1, 26, 15, 15, 7, 907, DateTimeKind.Local).AddTicks(2454)
                         },
                         new
                         {
@@ -1834,8 +1840,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 10,
                             MaxParticipants = 7,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6804),
-                            SessionHour = new DateTime(2023, 1, 27, 22, 30, 58, 505, DateTimeKind.Local).AddTicks(6806)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2467),
+                            SessionHour = new DateTime(2023, 1, 28, 14, 38, 7, 907, DateTimeKind.Local).AddTicks(2468)
                         },
                         new
                         {
@@ -1845,8 +1851,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 10,
                             MaxParticipants = 19,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6814),
-                            SessionHour = new DateTime(2023, 1, 26, 20, 40, 58, 505, DateTimeKind.Local).AddTicks(6816)
+                            SessionDate = new DateTime(2023, 1, 28, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2477),
+                            SessionHour = new DateTime(2023, 1, 27, 12, 48, 7, 907, DateTimeKind.Local).AddTicks(2479)
                         },
                         new
                         {
@@ -1856,8 +1862,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 10,
                             MaxParticipants = 11,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6830),
-                            SessionHour = new DateTime(2023, 1, 29, 9, 28, 58, 505, DateTimeKind.Local).AddTicks(6832)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2488),
+                            SessionHour = new DateTime(2023, 1, 30, 1, 36, 7, 907, DateTimeKind.Local).AddTicks(2490)
                         },
                         new
                         {
@@ -1867,8 +1873,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 10,
                             MaxParticipants = 16,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6840),
-                            SessionHour = new DateTime(2023, 1, 29, 21, 56, 58, 505, DateTimeKind.Local).AddTicks(6842)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2500),
+                            SessionHour = new DateTime(2023, 1, 30, 14, 4, 7, 907, DateTimeKind.Local).AddTicks(2501)
                         },
                         new
                         {
@@ -1878,8 +1884,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 10,
                             MaxParticipants = 14,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6850),
-                            SessionHour = new DateTime(2023, 1, 31, 18, 9, 58, 505, DateTimeKind.Local).AddTicks(6852)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2511),
+                            SessionHour = new DateTime(2023, 2, 1, 10, 17, 7, 907, DateTimeKind.Local).AddTicks(2513)
                         },
                         new
                         {
@@ -1889,8 +1895,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 10,
                             MaxParticipants = 9,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6860),
-                            SessionHour = new DateTime(2023, 1, 28, 3, 50, 58, 505, DateTimeKind.Local).AddTicks(6862)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2523),
+                            SessionHour = new DateTime(2023, 1, 28, 19, 58, 7, 907, DateTimeKind.Local).AddTicks(2524)
                         },
                         new
                         {
@@ -1900,8 +1906,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 10,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 29, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6870),
-                            SessionHour = new DateTime(2023, 1, 30, 23, 19, 58, 505, DateTimeKind.Local).AddTicks(6872)
+                            SessionDate = new DateTime(2023, 1, 30, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2534),
+                            SessionHour = new DateTime(2023, 1, 31, 15, 27, 7, 907, DateTimeKind.Local).AddTicks(2536)
                         },
                         new
                         {
@@ -1911,8 +1917,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 5,
                             IdTrainingProgram = 10,
                             MaxParticipants = 8,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(6880),
-                            SessionHour = new DateTime(2023, 1, 27, 22, 30, 58, 505, DateTimeKind.Local).AddTicks(6882)
+                            SessionDate = new DateTime(2023, 1, 27, 4, 25, 7, 907, DateTimeKind.Local).AddTicks(2545),
+                            SessionHour = new DateTime(2023, 1, 28, 14, 38, 7, 907, DateTimeKind.Local).AddTicks(2547)
                         });
                 });
 
