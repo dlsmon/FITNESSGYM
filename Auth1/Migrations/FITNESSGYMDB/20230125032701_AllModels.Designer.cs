@@ -4,6 +4,7 @@ using FITNESSGYM.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FITNESSGYM.Migrations.FITNESSGYMDB
 {
     [DbContext(typeof(FITNESSGYMDBContext))]
-    partial class FITNESSGYMDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230125032701_AllModels")]
+    partial class AllModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -453,14 +456,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     b.Property<int>("Frequency")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("GoalDate")
-                        .HasColumnType("datetime2");
-
                     b.Property<int>("IdClient")
                         .HasColumnType("int");
-
-                    b.Property<DateTime?>("UpdateDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<int?>("Weight")
                         .HasColumnType("int");
@@ -790,12 +787,11 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     b.Property<int?>("IdSession")
                         .HasColumnType("int");
 
-
                     b.Property<byte[]>("TimeStamp")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
-                        
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdClient");
@@ -883,10 +879,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 1,
                             MaxParticipants = 15,
-
                             SessionDate = new DateTime(2023, 1, 26, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(6897),
                             SessionHour = new DateTime(2023, 1, 25, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(6988)
-
                         },
                         new
                         {
@@ -896,10 +890,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 2,
                             MaxParticipants = 20,
-
                             SessionDate = new DateTime(2023, 1, 27, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7021),
                             SessionHour = new DateTime(2023, 1, 25, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7025)
-
                         },
                         new
                         {
@@ -909,10 +901,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 3,
                             MaxParticipants = 30,
-
                             SessionDate = new DateTime(2023, 1, 27, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7053),
                             SessionHour = new DateTime(2023, 1, 25, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7057)
-
                         },
                         new
                         {
@@ -922,10 +912,8 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 4,
                             MaxParticipants = 22,
-
                             SessionDate = new DateTime(2023, 1, 27, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7082),
                             SessionHour = new DateTime(2023, 1, 25, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7086)
-
                         },
                         new
                         {

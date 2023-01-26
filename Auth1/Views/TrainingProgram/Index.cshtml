@@ -5,7 +5,56 @@
 }
 
 
-<img width="100%" class="img-fluid" src="\assets\images\gym-classes-cropped2.png" alt="Logo" />
+<div id="carouselExampleDark" class="carousel carousel-dark slide">
+    <div class="carousel-indicators">
+        @{
+            int i = 1;
+        }
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+
+        @foreach (var item in Model)
+        {
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="@i" aria-label="Slide @i"></button>
+            i++;
+        }
+        
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="4000">
+            <img src="\assets\images\trainingprogram\pilates.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>TRAINING PROGRAMS</h5>
+                <p class="text-truncate">Discover our Training Programs in detail!</p>
+                <p class="text-truncate">Choose yours and let's get started!</p>
+            </div>
+        </div>
+        @foreach (var item in Model)
+        {
+            <div class="carousel-item" data-bs-interval="3500">
+                <img src="@item.Photo" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5 c>@Html.DisplayFor(modelItem => item.Name)</h5>
+                    <p class="text-truncate">@Html.DisplayFor(modelItem => item.Description)</p>
+                    <p class="text-truncate">Intensity - @Html.DisplayFor(modelItem => item.Intensity)</p>
+                </div>
+            </div>
+        }
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+
+
+
+
+
 
 
 <style>
@@ -28,10 +77,7 @@
         </nav>
     </div>
 
-    <h1 class=" container display-2">Training Program</h1>
-
     <div class="container mb-3 mt-3">
-
         <form asp-controller="TrainingProgram" asp-action="Index" method="get">
             <div class="input-group mb-3">
                 <input type="text" name="SearchString" class="form-control" placeholder="Search your favourite training program" aria-label="Training Program Name">
@@ -44,13 +90,12 @@
 
 </div>
 
-
 <div class="d-flex flex-wrap justify-content-center">
     @foreach (var item in Model)
     {
         <div class=" m-3 shadow">
             <div class="card border border-0  rounded-2" style="width: 18rem;">
-                <img src="\assets\images\neo.jpg" class="card-img-top" alt="...">
+                 <img src="@item.Photo" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
                     <p class="card-text text-truncate">@Html.DisplayFor(modelItem => item.Description)</p>
@@ -68,7 +113,6 @@
 {
     @if (User.IsInRole("Admin"))
     {
-
         <p>
             <a asp-action="Create">Create New</a>
         </p>

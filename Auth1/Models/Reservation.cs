@@ -28,6 +28,9 @@ namespace FITNESSGYM.Models
 
         public int? IdClient { get; set; }
 
+        [Timestamp]
+        public byte[]? TimeStamp { get; set; }
+
         //Foreign KEYS
         [ForeignKey("IdSession")]
         public virtual Session? Session { get; set; }

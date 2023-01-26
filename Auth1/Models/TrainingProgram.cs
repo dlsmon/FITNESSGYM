@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FITNESSGYM.Models
  
@@ -34,6 +35,10 @@ namespace FITNESSGYM.Models
         //Training Program Calories
         [Display(Name = "Calories (Kcal)")]
         public int? Calories { get; set; }
+
+        public string? Photo { get; set; }
+        [NotMapped]
+        public IFormFile? File { get; set; }
 
         public virtual ICollection<Session>? Sessions { get; set; }
 
