@@ -204,9 +204,38 @@ namespace FITNESSGYM.Controllers
 
 
         [Authorize]
-        public IActionResult MySubscription()
+        public async Task<IActionResult> MySubscription()
         {
-            return View();
+
+            if (IsClientNull())
+            {
+                return RedirectToAction("Index", "Home");
+                
+            }
+            else
+            {
+                Client client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+                var subscription = await _context.Subscription.OrderByDescending(m => m.Id)
+                    .Include(o => o.Formula)
+                    .FirstOrDefaultAsync(m => m.IdClient == client.ID);
+                if (subscription == null)
+                {
+                    return RedirectToAction(nameof(Index));
+                    
+                }
+
+                return View(subscription);
+            }
+        }
+
+        private bool IsClientNull()
+        {
+            var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+            if (client == null)
+            {
+                return true;
+            }
+            return false;
         }
 
         [Authorize]

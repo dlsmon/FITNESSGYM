@@ -16,8 +16,9 @@ namespace FITNESSGYM.Controllers
                 _context = context;
             }
 
-            // GET: Formula
-            public async Task<IActionResult> Index()
+        // GET: Formula
+        
+        public async Task<IActionResult> Index()
             {
                 return _context.Formula != null ?
                             View(await _context.Formula.ToListAsync()) :
@@ -55,7 +56,7 @@ namespace FITNESSGYM.Controllers
          [HttpPost]
          [ValidateAntiForgeryToken]
             
-            public async Task<IActionResult> Create([Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Controllers.FormulaController formula)
+            public async Task<IActionResult> Create([Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Formula formula)
             {
                 if (ModelState.IsValid)
                 {
@@ -66,8 +67,50 @@ namespace FITNESSGYM.Controllers
                 return View(formula);
             }
 
-            // GET: Formula/Edit/5
-            public async Task<IActionResult> Edit(int? id)
+
+
+        [Authorize]
+        public async Task<IActionResult> CreateSupscription(int id)
+        {
+            //User subscribes to a Formula (reate a new subscription)
+            //Rule: User must have basc authorization and only one subscription only
+
+            //id is from formula
+            if (id == null)
+            {
+                return NotFound();
+            }
+            if (!IsClientNull())
+            {
+                Client client = _context.Client.Include(s => s.Subscriptions).FirstOrDefault(m => m.IdUser == User.Identity.Name);
+
+                if (client.Subscriptions.Count == 0)
+                {
+                    Formula formula = _context.Formula.FirstOrDefault(m => m.ID == id);
+                    if (formula !=null)
+                    {
+                        Subscription newsubscription = new Subscription();
+                        newsubscription.Price = formula.Price;
+                        newsubscription.Entrydate = DateTime.Now;
+                        newsubscription.Sortdate = DateTime.Now.AddYears(1);
+                        newsubscription.IdClient = client.ID;
+                        newsubscription.IdFormula = id;
+
+                        _context.Add(newsubscription);
+                        await _context.SaveChangesAsync();
+                        TempData["Message"] = "You have subscribed to Formula " + newsubscription.Formula.Name;
+                        return RedirectToAction(nameof(Index));
+                    }
+                    
+                }
+                TempData["Message"] = "You have already subscribed to the Formula. ";
+            }
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        // GET: Formula/Edit/5
+        public async Task<IActionResult> Edit(int? id)
             {
                 if (id == null || _context.Formula == null)
                 {
@@ -82,10 +125,20 @@ namespace FITNESSGYM.Controllers
                 return View(formula);
             }
 
-            // POST: Formula/Edit/5
-            // To protect from overposting attacks, enable the specific properties you want to bind to.
-            // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-            [HttpPost]
+        private bool IsClientNull()
+        {
+            var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+            if (client == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        // POST: Formula/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
             [ValidateAntiForgeryToken]
             public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Description,FormulaRank,Price,Commitement")] Formula formula)
             {

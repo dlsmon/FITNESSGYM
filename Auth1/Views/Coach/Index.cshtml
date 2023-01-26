@@ -22,12 +22,12 @@
     <div class="d-flex flex-wrap justify-content-center" id="myItems">
 <tbody>
        
-
+ 
 @foreach (var item in Model) {
             <div class=" m-3 shadow">
                 <div class="card border border-0  rounded-2" style="width: 18rem;">
-                        <img   src="@item.Photo"
-                         height="200px" width="300px">
+                        <img  class="card-img-top" src="@item.Photo"
+                         >
                         <div class="card-body">
                             <h5 class="card-title">
                              @Html.DisplayFor(modelItem => item.FirstName) @Html.DisplayFor(modelItem => item.LastName)</h5>

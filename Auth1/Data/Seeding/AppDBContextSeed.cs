@@ -4,6 +4,7 @@ using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using NuGet.ContentModel;
+using System;
 using Location = FITNESSGYM.Models.Location;
 
 namespace FITNESSGYM.Data.Seeding
@@ -656,7 +657,7 @@ namespace FITNESSGYM.Data.Seeding
                     Hobbies = "Sport",
                     Newsletter = Client.eNewsletter.No,
                     Freetrial = Client.eFreetrial.No,
-                });           
+                });
 
 
             //Subscription
@@ -664,9 +665,9 @@ namespace FITNESSGYM.Data.Seeding
                 new Subscription()
                 {
                     Id = 1,
-                    //Entrydate = 01/01/2023,
-                    //Sortdate = 01/01/2024,
-                    IdClient = 1,                    
+                   // Entrydate = DateTime.Now.Date,
+                   // Price = 40,
+                    IdClient = 1,
                     IdFormula = 3
                 });
 
@@ -674,8 +675,8 @@ namespace FITNESSGYM.Data.Seeding
                 new Subscription()
                 {
                     Id = 2,
-                    //Entrydate = 01/01/2023,
-                    //Sortdate = 01/01/2024,
+                   // Entrydate = DateTime.Now.Date,
+                    //Price =50,
                     IdClient = 2,
                     IdFormula = 4
                 });
