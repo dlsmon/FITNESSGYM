@@ -5,15 +5,17 @@
     align-items: flex-end !important;
 }
 
+.imag-home {
+    background-image: url("..//Assets/home.jpeg");
+    height: 620px;
+}
+
 .container {
     padding: 10px 10px 10px 10px;
     padding-bottom: 50px;
 }
 
-.imag-home {
-    background-image: url("..//Assets/Images/home.jpeg");
-    height: 620px;
-}
+
 .row {
     display: -webkit-box;
     display: -webkit-flex;
