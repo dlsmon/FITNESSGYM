@@ -9,7 +9,11 @@
     padding: 10px 10px 10px 10px;
     padding-bottom: 50px;
 }
-
+.imag-home {
+    
+    background-image: url("..//Assets/Images/TrainingProgram/home.jpeg");
+    height:620px;
+}
 .row {
     display: -webkit-box;
     display: -webkit-flex;
@@ -21,6 +25,7 @@
     margin-right: -15px;
     margin-left: -15px;
 }
+
 
 *, *::before, *::after {
     -webkit-box-sizing: border-box;
