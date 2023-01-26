@@ -70,30 +70,42 @@ namespace FITNESSGYM.Controllers
 
 
         [Authorize]
-        public async Task<IActionResult> CreateSupscription(int id,[Bind("ID,Name,Description,FormulaRank,Price,Discount,Commitement")] Formula formula)
+        public async Task<IActionResult> CreateSupscription(int id)
         {
+            //User subscribes to a Formula (reate a new subscription)
+            //Rule: User must have basc authorization and only one subscription only
+
+            //id is from formula
             if (id == null)
             {
                 return NotFound();
             }
-            IsClientNull();
-            Client client = _context.Client.Include(s => s.Subscriptions).FirstOrDefault(m => m.IdUser == User.Identity.Name);
-
-            if (client.Subscriptions.Count == 0)
+            if (!IsClientNull())
             {
-                Subscription newsubscription = new Subscription();
-                newsubscription.Price = newsubscription.Formula.Price*newsubscription.Discount/100;
-                newsubscription.Entrydate = DateTime.Now; 
-                newsubscription.Sortdate  = DateTime.Now.AddYears(1);
-                newsubscription.IdClient = client.ID;
-                newsubscription.IdFormula = id;
+                Client client = _context.Client.Include(s => s.Subscriptions).FirstOrDefault(m => m.IdUser == User.Identity.Name);
 
-                _context.Add(newsubscription);
-                await _context.SaveChangesAsync();
-                TempData["Message"] = "You have subscribed to Formula "+ newsubscription.Formula.Name;
-                return RedirectToAction(nameof(Index));
+                if (client.Subscriptions.Count == 0)
+                {
+                    Formula formula = _context.Formula.FirstOrDefault(m => m.ID == id);
+                    if (formula !=null)
+                    {
+                        Subscription newsubscription = new Subscription();
+                        newsubscription.Price = formula.Price;
+                        newsubscription.Entrydate = DateTime.Now;
+                        newsubscription.Sortdate = DateTime.Now.AddYears(1);
+                        newsubscription.IdClient = client.ID;
+                        newsubscription.IdFormula = id;
+
+                        _context.Add(newsubscription);
+                        await _context.SaveChangesAsync();
+                        TempData["Message"] = "You have subscribed to Formula " + newsubscription.Formula.Name;
+                        return RedirectToAction(nameof(Index));
+                    }
+                    
+                }
+                TempData["Message"] = "You have already subscribed to the Formula. ";
             }
-            TempData["Message"] = "You have already subscribed to the Formula. ";
+
             return RedirectToAction(nameof(Index));
         }
 
@@ -113,14 +125,14 @@ namespace FITNESSGYM.Controllers
                 return View(formula);
             }
 
-        public async Task<IActionResult> IsClientNull()
+        private bool IsClientNull()
         {
             var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
             if (client == null)
             {
-                return RedirectToAction("MyQuiz1", "MyAccount");
+                return true;
             }
-            return View(client);
+            return false;
         }
 
         // POST: Formula/Edit/5
