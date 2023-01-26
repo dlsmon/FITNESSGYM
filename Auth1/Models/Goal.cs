@@ -21,6 +21,16 @@ namespace FITNESSGYM.Models
         public int Id { get; set; }
         public int? Weight { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Update date")]
+        public DateTime? UpdateDate { get; set; }
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Goal date")]
+        public DateTime? GoalDate { get; set; }
+
         // Fréquence de 0 à 7 fois par semaines
         public eFrequency Frequency { get; set; }
 
