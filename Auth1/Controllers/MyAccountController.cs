@@ -228,6 +228,16 @@ namespace FITNESSGYM.Controllers
             }
         }
 
+        private bool IsClientNull()
+        {
+            var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
+            if (client == null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         [Authorize]
         public IActionResult MyReservations()   //MyReservation = my planning
         {
