@@ -272,28 +272,5 @@ namespace FITNESSGYM.Controllers
         }
 
 
-        private bool IsClientNull()
-        {
-            var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
-
-            if (client == null)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        //private async Task<IActionResult> IsClientNull()
-        //{
-        //    var client = _context.Client.FirstOrDefault(m => m.IdUser == User.Identity.Name);
-
-        //    if (client == null)
-        //    {
-        //        return RedirectToAction("MyQuiz1", "MyAccount");
-        //    }
-        //    return View(client);
-        //}
-
-
     }
 }
