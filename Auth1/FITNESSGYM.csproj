@@ -20,6 +20,7 @@
     <PackageReference Include="SendGrid" Version="9.28.1" />
   </ItemGroup>
 
+
   <ItemGroup>
     <Content Update="wwwroot\Assets\Images\TrainingProgram\STEP.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>

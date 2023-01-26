@@ -453,8 +453,14 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     b.Property<int>("Frequency")
                         .HasColumnType("int");
 
+                    b.Property<DateTime?>("GoalDate")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("IdClient")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("UpdateDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("Weight")
                         .HasColumnType("int");
@@ -784,11 +790,12 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                     b.Property<int?>("IdSession")
                         .HasColumnType("int");
 
+
                     b.Property<byte[]>("TimeStamp")
                         .IsConcurrencyToken()
                         .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("rowversion");
-
+                        
                     b.HasKey("Id");
 
                     b.HasIndex("IdClient");
@@ -876,8 +883,11 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 2,
                             IdTrainingProgram = 1,
                             MaxParticipants = 15,
-                            SessionDate = new DateTime(2023, 1, 26, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5756),
-                            SessionHour = new DateTime(2023, 1, 25, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5821)
+
+                            SessionDate = new DateTime(2023, 1, 26, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(6897),
+                            SessionHour = new DateTime(2023, 1, 25, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(6988)
+
+
                         },
                         new
                         {
@@ -887,8 +897,11 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 7,
                             IdTrainingProgram = 2,
                             MaxParticipants = 20,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5834),
-                            SessionHour = new DateTime(2023, 1, 25, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5837)
+
+
+                            SessionDate = new DateTime(2023, 1, 27, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7021),
+                            SessionHour = new DateTime(2023, 1, 25, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7025)
+
                         },
                         new
                         {
@@ -898,8 +911,11 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 9,
                             IdTrainingProgram = 3,
                             MaxParticipants = 30,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5847),
-                            SessionHour = new DateTime(2023, 1, 25, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5849)
+
+
+                            SessionDate = new DateTime(2023, 1, 27, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7053),
+                            SessionHour = new DateTime(2023, 1, 25, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7057)
+
                         },
                         new
                         {
@@ -909,8 +925,12 @@ namespace FITNESSGYM.Migrations.FITNESSGYMDB
                             IdLocation = 8,
                             IdTrainingProgram = 4,
                             MaxParticipants = 22,
-                            SessionDate = new DateTime(2023, 1, 27, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5865),
-                            SessionHour = new DateTime(2023, 1, 25, 12, 17, 58, 505, DateTimeKind.Local).AddTicks(5867)
+
+
+                            SessionDate = new DateTime(2023, 1, 27, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7082),
+                            SessionHour = new DateTime(2023, 1, 25, 4, 27, 1, 421, DateTimeKind.Local).AddTicks(7086)
+
+
                         },
                         new
                         {

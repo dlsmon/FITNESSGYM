@@ -45,7 +45,7 @@ namespace FITNESSGYM.Models
 
         public string? Adresse { get; set; }
 
-        [DataType(DataType.EmailAddress, ErrorMessage = "This Email is not valid.")]
+     
         
         public string? Diseases { get; set; }
         public string? Hobbies { get; set; }
